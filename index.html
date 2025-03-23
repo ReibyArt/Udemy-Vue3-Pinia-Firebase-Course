@@ -8,16 +8,45 @@
 
   <title>BASICS OF VUE</title>
 </head>
+
+<!-- BODY -->
 <body>
   <div id="app">
     <h1> {{ greeting }} </h1>
+    <hr>
     <h2>Is It True OR False?: {{ isTrue ? "Yes. True!" : "No! False!" }} </h2>
     <h2> {{ arrayOfNames[1] }} </h2>
     <h3> {{ objectGames.Gothic }} </h3>
+    <hr>
+    <h2> {{ messageFromArrayFunction() }} </h2>
+    <h2> {{messageFromFunction() }} </h2>
+    <hr>
+    <h1>Using Ref</h1>
+    <hr>
+    <h2>Value Reactive: {{ count }} </h2>
+     {{ changeValue() }} 
+    <hr>
+    <h2> Changing Ref For 3 sec:</h2>
+    <h2> {{ refObj.objCar }} </h2>
+    <h2> {{ refObj.objBike }} </h2>
+    <h2> {{ refObj.objHuman }} </h2>
+     {{ UpdateHuman() }}
+    <hr>
+    <h1>Using Reactive</h1>
+    <hr>
+    <h2> Changing Reactive For 2 sec:</h2>
+    <h2> {{ reactObj.objGame }} </h2>
+    <h2> {{ reactObj.objYearOfGame }} </h2>
+      {{ ReactiveShow() }}
+
+
   </div>
 </body>
+
+<!-- SCRIPT -->
 <script>
-  const {createApp} = Vue;
+
+  const {createApp, ref, reactive} = Vue;
   createApp({
     setup() {
       const date = new Date().toLocaleString();
@@ -28,15 +57,75 @@
         Gothic: 2001,
         Phasmophobia: 2020,
         Witcher: 2007, 
+      };
+
+      const messageFromArrayFunction = () => "Hello From Array Function!";
+
+      function messageFromFunction() {
+        return "Hello From Just Function!"
       }
+
+      // Using Ref //
+      let count = ref(0);
+      function changeValue(){
+        setTimeout(()=>{
+          count.value = 32;
+        }, 2000)
+      };
+
+      // Ref Object //
+      let refObj = ref({
+        objCar: "Mustang",
+        objBike: "Yamaha",
+        objHuman: "Driver"
+      });
+
+      // Reactive Obj //
+      let reactObj = {
+        objGame: "GTA 6",
+        objYearOfGame: "2025"
+      };
+
+      // Changing Ref //
+      function UpdateHuman(){
+        setTimeout(()=>{
+          refObj.value.objCar = "Chevrolet 1969";
+          refObj.value.objBike = "Suzuki";
+          refObj.value.objHuman = "ReibyArtGames"
+        }, 3000)
+      };
+
+      // Changing Reactive //
+      function ReactiveShow() {
+        setTimeout(()=>{
+          reactObj.objGame,
+          reactObj.objYearOfGame = "2025 - 2026"
+        }, 2000)
+      };
+      
+
+      // RETURN //
       return {
         greeting,
         isTrue,
         arrayOfNames,
-        objectGames
+        objectGames,
+        messageFromArrayFunction,
+        messageFromFunction,
+        count,
+        changeValue,
+        refObj,
+        UpdateHuman,
+        reactObj,
+        ReactiveShow
+
       }
     }
   }).mount("#app"); 
 </script>
+<!-- END SCRIPT -->
+
 <!-- return всегда должен возвращать что-то, иначе это не будет отражаться на странице в mustache! -->
+<!-- Option API можно использовать совместно с Composite API, но вроде не наоборот) -->
+ <!-- С REF лучше использовать простые выражения и свойства, а с REACTIVE лучше работать с Watch, Computed Proprties. C ref нужно ставить value (car.value = 0) -->
 </html>
