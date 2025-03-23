@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--ADD GLOBAL VUE  -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <title>BASICS OF VUE</title>
+</head>
+<body>
+  <div id="app">
+    <h1> {{ greeting }} </h1>
+    <h2>Is It True OR False?: {{ isTrue ? "Yes. True!" : "No! False!" }} </h2>
+    <h2> {{ arrayOfNames[1] }} </h2>
+    <h3> {{ objectGames.Gothic }} </h3>
+  </div>
+</body>
+<script>
+  const {createApp} = Vue;
+  createApp({
+    setup() {
+      const date = new Date().toLocaleString();
+      const greeting = "Hello! Today is " + date;
+      const isTrue = true;
+      const arrayOfNames = ["Phasmophobia", "Gothic", "Witcher", "Sherlock Holmes"];
+      const objectGames = {
+        Gothic: 2001,
+        Phasmophobia: 2020,
+        Witcher: 2007, 
+      }
+      return {
+        greeting,
+        isTrue,
+        arrayOfNames,
+        objectGames
+      }
+    }
+  }).mount("#app"); 
+</script>
+<!-- return всегда должен возвращать что-то, иначе это не будет отражаться на странице в mustache! -->
+</html>
