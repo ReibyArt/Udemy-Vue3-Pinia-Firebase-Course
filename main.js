@@ -66,6 +66,19 @@ createApp({
     const linkToYouTube = "https://youtube.com/@ReibyArtGames";
     let textWelcome = "Welcome to my channel!";
     const myOwnHtml = "<strong> STRONG HTML </strong>"
+
+    // V-IF and V-SHOW //
+
+    let user = ref({
+      nameOfUser: "Jack",
+      ageOfUser: 18,
+      allowedAgeUser: 18
+    });
+
+   function CheckOfUser()
+    {
+      return nameOfUser === "Jack" ? true : false;
+    };
     
 
     // RETURN //
@@ -87,6 +100,8 @@ createApp({
       linkToYouTube,
       textWelcome,
       myOwnHtml,
+      user,
+      CheckOfUser
     }
   }
 }).mount("#app"); 

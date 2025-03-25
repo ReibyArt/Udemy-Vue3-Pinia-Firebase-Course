@@ -64,6 +64,21 @@
       <p v-html="myOwnHtml"></p>
       <hr>
       <h1>V-IF</h1>
+      <h3 v-if="user.ageOfUser < user.allowedAgeUser">
+        Fuck You, Man! You are not old for drinks!
+      </h3>
+      <h3 v-else-if="user.ageOfUser >= user.allowedAgeUser">
+        Cheers! You are OLD BOY!
+      </h3>
+      <h3 v-if="CheckOfUser">
+      Jack!My Boy!!!!! Cheeeeers!!!
+      </h3>
+      <hr>
+      <h1> V-SHOW </h1>
+      <h3 v-show="true">I am here! CSS Display not NONE! V-SHOW is True!</h3>
+      <h3 v-show="false">CSS Display equals === NONE</h3>
+      <hr>
+      <h1>Looping</h1>
 
       
   </div>
