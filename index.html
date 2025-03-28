@@ -102,12 +102,37 @@
       </ul>
       <hr>
       <h1>Disable re-render</h1>
-
-      
+      <h3 v-once> {{ nameVOnce }} </h3>
+      <h3> {{ nameVOnce }} </h3>
+      {{ UpdateNameVOnce() }}
+      <hr>
+      <h1>Working with Events (v-on:click)</h1>
+      <h2>
+        {{ nameVOnClick }}
+      </h2>
+      <div>
+        <h2 v-on:click="UpdateNameVOnClick">
+          Click me to change my name!
+        </h2>
+      </div>
+      <hr>
+      <div class="box" v-on:mousemove="GetCoordinates">
+        <h4>Hover Me</h4>
+      </div>
+      <h5> X Position: - {{ coordinatesXY.x }} </h5>
+      <h5> Y Position: - {{ coordinatesXY.y }} </h5>
   </div>
 </body>
 
-
+<!-- STYLE -->
+<style>
+  .box {
+    align-content: center;
+    background: red;
+    width: 200px;
+    height: 200px;
+  }
+</style>
 
 <!-- SCRIPT -->
 <script src="main.js"></script>

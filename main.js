@@ -102,6 +102,35 @@ createApp({
        
   ]);
 
+  // Re-render V-ONCE //
+  
+  const nameVOnce = ref("Artiom");
+
+  function UpdateNameVOnce() {
+    setTimeout(()=>{
+      nameVOnce.value = "Reiby";
+    }, 2000);
+  }
+
+  // Working with Events v-on:click and v-on:mousemove //
+
+  const nameVOnClick = ref("Artiom");
+
+  function UpdateNameVOnClick() {
+    nameVOnClick.value = "Reiby By V-ON:CLICK!!!";
+  }
+  
+ // Using v-on: mouseonmove //
+  const coordinatesXY = ref({ 
+    x: 0,
+    y: 0,
+  });
+
+  function GetCoordinates(event) {
+    coordinatesXY.value.x = event.clientX;
+    coordinatesXY.value.y = event.clientY;
+  }
+
 
     
 
@@ -128,7 +157,13 @@ createApp({
       CheckOfUser,
       nameOfLoop,
       objectsInLoop,
-      arrObjsLoop
+      arrObjsLoop,
+      nameVOnce,
+      UpdateNameVOnce,
+      nameVOnClick,
+      UpdateNameVOnClick,
+      coordinatesXY,
+      GetCoordinates,
     }
   }
 }).mount("#app"); 
