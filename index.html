@@ -101,6 +101,7 @@
         </li>
       </ul>
       <hr>
+      <!-- Re-render V-ONCE -->
       <h1>Disable re-render</h1>
       <h3 v-once> {{ nameVOnce }} </h3>
       <h3> {{ nameVOnce }} </h3>
@@ -121,6 +122,27 @@
       </div>
       <h5> X Position: - {{ coordinatesXY.x }} </h5>
       <h5> Y Position: - {{ coordinatesXY.y }} </h5>
+      <hr>
+      <!-- Events and Arguments -->
+      <h1> Events and Arguments </h1>
+   <h2>{{ nameOfEventArgument }}</h2>
+      <div v-on:click.right="UpdateNameWithArg('Reiby From Argument!', $event)">
+       Click Me For Changing Name From Argument! Right Mouse Click!
+      </div>
+      <hr>
+      <!-- Forms -->
+      <form v-on:submit.prevent="handleForm">
+        <h3>Enter Your Name</h3>
+        <input type="text">
+        <button type="submit"> Submit... </button>
+      </form>
+
+
+      
+
+
+
+
   </div>
 </body>
 

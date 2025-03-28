@@ -131,6 +131,19 @@ createApp({
     coordinatesXY.value.y = event.clientY;
   }
 
+  // Events and Arguments //
+
+  const nameOfEventArgument = ref("Artiom Argument");
+  
+  function UpdateNameWithArg(newName, event) {
+    console.log(event);
+    nameOfEventArgument.value = newName;
+  }
+
+  function handleForm() {
+    // event.preventDefault(); // Classic prevent behaivor!
+    console.log("Form Submitted!");
+  }
 
     
 
@@ -164,6 +177,9 @@ createApp({
       UpdateNameVOnClick,
       coordinatesXY,
       GetCoordinates,
+      nameOfEventArgument,
+      UpdateNameWithArg,
+      handleForm
     }
   }
 }).mount("#app"); 
