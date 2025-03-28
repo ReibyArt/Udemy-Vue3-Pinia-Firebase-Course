@@ -79,6 +79,29 @@
       <h3 v-show="false">CSS Display equals === NONE</h3>
       <hr>
       <h1>Looping</h1>
+      <h2 v-for="(nameLoop, index) in nameOfLoop">
+        Index = {{ index }},  Element in Loop = {{ nameLoop}}
+      </h2>
+      <hr>
+      <h1>Object in the Loop</h1>
+      <ul>
+        <li>
+          <h2 v-for="( key, index, value ) in objectsInLoop">
+            Key of object - {{ key }}, Index of object - {{ index }}, Value of object {{ value }}
+          </h2>
+        </li>
+      </ul>
+      <hr>
+      <h1>Array Objects in the Loop</h1>
+      <ul>
+        <li >
+          <h2 v-for="arrObjLoo in arrObjsLoop">
+            {{ arrObjLoo.arrObjlooping }} - {{ arrObjLoo.color }}
+          </h2>
+        </li>
+      </ul>
+      <hr>
+      <h1>Disable re-render</h1>
 
       
   </div>

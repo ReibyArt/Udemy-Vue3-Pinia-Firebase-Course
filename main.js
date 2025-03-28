@@ -79,6 +79,30 @@ createApp({
     {
       return nameOfUser === "Jack" ? true : false;
     };
+
+    // Looping V-FOR //
+
+    const nameOfLoop = ref(["Reiby", "Aranel", "Riki"]);
+
+    // Object in the loop //
+
+    let objectsInLoop = {
+      objectInTheLoopOne: "OneObj",
+      objectInTheLoopTwo: "TwoObj",
+      objectInTheLoopTree:"TreeObj",
+    }
+
+    // Array Objects in the Loop //
+
+    const arrObjsLoop = ref([
+      
+        {arrObjlooping: "arrObjLoop_One", color: "red"},
+        {arrObjlooping: "arrObjLoop_Two", color: "blue"},
+        {arrObjlooping: "arrObjLoop_Tree", color: "green"},
+       
+  ]);
+
+
     
 
     // RETURN //
@@ -101,7 +125,10 @@ createApp({
       textWelcome,
       myOwnHtml,
       user,
-      CheckOfUser
+      CheckOfUser,
+      nameOfLoop,
+      objectsInLoop,
+      arrObjsLoop
     }
   }
 }).mount("#app"); 
