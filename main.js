@@ -145,6 +145,19 @@ createApp({
     console.log("Form Submitted!");
   }
 
+  // Forms and V-MODEL //
+
+  const nameForm = ref({
+    nameToForm: "",
+    lastNameToForm: "",
+    ageToForm: 33,
+    checkBoxModel: false,
+  });
+
+  function HandleFormVModel(){
+    console.log(nameForm.value);
+  }
+
     
 
     // RETURN //
@@ -179,7 +192,9 @@ createApp({
       GetCoordinates,
       nameOfEventArgument,
       UpdateNameWithArg,
-      handleForm
+      handleForm,
+      nameForm,
+      HandleFormVModel
     }
   }
 }).mount("#app"); 

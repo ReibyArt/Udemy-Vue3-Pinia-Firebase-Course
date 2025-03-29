@@ -136,6 +136,35 @@
         <input type="text">
         <button type="submit"> Submit... </button>
       </form>
+      <hr>
+      <h1> Forms and V-MODEL </h1>
+    <div>
+      <form v-on:submit.prevent="HandleFormVModel">
+        <label>
+          Name:
+        </label>
+        <input type="text" v-model="nameToForm">
+        <hr>
+        <label>
+          Last Name:
+        </label>
+        <input type="text"v-model="lastNameToForm">
+        <hr>
+        <label>
+          Your Age:
+        </label>
+        <input type="text"v-model.number="ageToForm">
+        <hr>
+        <button>
+          Press Me
+        </button>
+        <hr>
+        <input type="checkbox" id="checkbox" v-model="nameForm.checkBoxModel">
+        <hr>
+        <h3> Check Box: {{ nameForm.checkBoxModel }}</h3>  
+        <hr>
+      </form>
+    </div>
 
 
       
@@ -163,4 +192,6 @@
 <!-- return всегда должен возвращать что-то, иначе это не будет отражаться на странице в mustache! -->
 <!-- Option API можно использовать совместно с Composition API, но вроде не наоборот) -->
  <!-- С REF лучше использовать простые выражения и свойства, а с REACTIVE лучше работать с Watch, Computed Proprties. C ref нужно ставить value (car.value = 0) -->
+  <!-- v-model.trim - удаляет пробелы -->
+  <!-- v-model.number - переводит "30" из строки в чистло 30. -->
 </html>
