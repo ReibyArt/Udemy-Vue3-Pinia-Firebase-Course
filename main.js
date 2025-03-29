@@ -158,7 +158,20 @@ createApp({
     console.log(nameForm.value);
   }
 
-    
+  // Working with styles part 1 //
+
+    const redColorCss = ref(false)
+
+    const redBlueColorsCss = ref({
+      blue: false,
+      green: false,
+      red: false
+    });
+
+    // Working with styles part 2 //
+
+
+
 
     // RETURN //
     return {
@@ -194,7 +207,9 @@ createApp({
       UpdateNameWithArg,
       handleForm,
       nameForm,
-      HandleFormVModel
+      HandleFormVModel,
+      redColorCss,
+      redBlueColorsCss
     }
   }
 }).mount("#app"); 

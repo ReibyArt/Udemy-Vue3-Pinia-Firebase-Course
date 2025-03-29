@@ -130,6 +130,7 @@
        Click Me For Changing Name From Argument! Right Mouse Click!
       </div>
       <hr>
+      
       <!-- Forms -->
       <form v-on:submit.prevent="handleForm">
         <h3>Enter Your Name</h3>
@@ -162,21 +163,67 @@
         <input type="checkbox" id="checkbox" v-model="nameForm.checkBoxModel">
         <hr>
         <h3> Check Box: {{ nameForm.checkBoxModel }}</h3>  
-        <hr>
       </form>
     </div>
+    <hr>
 
-
-      
-
-
-
-
+    <!-- Working with styles part 1 -->
+     <h1>Working with styles part 1</h1>
+     <div class="element" v-bind:class = "{red:redColorCss, largeText: true}"
+      v-on:click = "redColorCss = !redColorCss">
+      This is my Header
+     </div>
+     <hr>
+     <div class="element_green" v-bind:class="redBlueColorsCss">
+      This is my Header Two. He must activate Green by click
+    </div>
+    <hr>
+    <h3 
+    v-on:click="redBlueColorsCss.green = !redBlueColorsCss.green">
+    Activate Green Header</h3>
+    <hr>
+    <!-- Working with styles part 2 -->
+    <h1>Working with styles part 2</h1>
   </div>
 </body>
 
 <!-- STYLE -->
 <style>
+
+/* <!-- Working with styles part 1 --> */
+  .element{
+    color: azure;
+    background: black;
+    padding: 10px;
+  }
+
+  .element_green{
+    color: azure;
+    background: rgb(48, 4, 4);
+    padding: 10px;
+  }
+
+  .red{
+    background: red;
+  }
+
+  .green{
+    background: green;
+  }
+
+  .blue{
+    background: blue;
+  }
+
+  .largeText {
+    font-size: 30px;
+  }
+
+  .whiteColor{
+    color: black;
+  }
+
+  /* Working with Events */
   .box {
     align-content: center;
     background: red;
