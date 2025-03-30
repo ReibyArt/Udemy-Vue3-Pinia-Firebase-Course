@@ -166,7 +166,7 @@
       </form>
     </div>
     <hr>
-
+<div class="work_styles">
     <!-- Working with styles part 1 -->
      <h1>Working with styles part 1</h1>
      <div class="element" v-bind:class = "{red:redColorCss, largeText: true}"
@@ -197,17 +197,44 @@
     ">
       Change Color Array Class
     </h2>
+  </div>
+    <hr>
 
-    <!--  -->
+    <!-- Computed properties -->
+
+<div class="computd_props">
+      <h1> Computed properties </h1>
+    <input v-model="comPropData.userProp">
+    <button v-on:click="ToggleComAction"> Other Action </button>
+    <hr>
+    <div>
+     Message Computed: {{ MessageComputed }}
+    </div>
+    <div>
+      <h2> Action Toggle: -> {{ ComutedAction }} </h2>
+    </div>
+</div>
+
+    <!-- END DIV  -->
   </div>
 </body>
 
 
-
-
-
 <!-- STYLE -->
 <style>
+
+/* Computed Properties */
+.computd_props{
+  padding: 10px;
+  background-color: rgb(203, 164, 113);
+}
+
+/* <!-- Working with styles part 2 --> */
+.work_styles {
+  padding: 10px;
+  background-color: bisque;
+}
+
 
 /* <!-- Working with styles part 1 --> */
   .element{
@@ -262,7 +289,7 @@
 <!-- END SCRIPT -->
 
 
-<!--  -->
+<!-- Computed properties - геттеры, а не сеттеры. Мы не можем их мутировать -->
 <!-- return всегда должен возвращать что-то, иначе это не будет отражаться на странице в mustache! -->
 <!-- Option API можно использовать совместно с Composition API, но вроде не наоборот) -->
  <!-- С REF лучше использовать простые выражения и свойства, а с REACTIVE лучше работать с Watch, Computed Proprties. C ref нужно ставить value (car.value = 0) -->

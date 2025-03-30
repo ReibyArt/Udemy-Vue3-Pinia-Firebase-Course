@@ -1,4 +1,4 @@
-const {createApp, ref, reactive} = Vue;
+const {createApp, ref, computed, reactive} = Vue;
 createApp({
   setup() {
     const date = new Date().toLocaleString();
@@ -186,7 +186,26 @@ createApp({
       }
     });
 
+    // Computed properties //
 
+const comPropData = ref({
+  userProp: '',
+  activeProp: ''
+});
+
+const MessageComputed = computed(()=>{
+  console.log('Message computed!');
+  return comPropData.value.userProp === 'Reiby' ? 'Welcome, Reiby': 'No. You are not Reiby!'
+}) 
+
+const ComutedAction = computed(() =>{
+  console.log("Is Active!")
+return comPropData.value.activeProp ? 'Active Comp Props' : 'Not Active Comp Prop'
+}) 
+
+function ToggleComAction() {
+return comPropData.value.activeProp = comPropData.value.activeProp ? 'false' : 'true'
+}
 
 
     
@@ -227,7 +246,11 @@ createApp({
       HandleFormVModel,
       redColorCss,
       redBlueColorsCss,
-      colorArrRedBlue
+      colorArrRedBlue,
+      comPropData,
+      MessageComputed,
+      ComutedAction,
+      ToggleComAction,
     }
   }
 }).mount("#app"); 
