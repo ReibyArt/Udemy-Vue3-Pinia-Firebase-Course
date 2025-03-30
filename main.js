@@ -1,4 +1,4 @@
-const {createApp, ref, computed, reactive} = Vue;
+const {createApp, ref, computed, reactive, watch} = Vue;
 createApp({
   setup() {
     const date = new Date().toLocaleString();
@@ -186,7 +186,7 @@ createApp({
       }
     });
 
-    // Computed properties //
+ // Computed properties //
 
 const comPropData = ref({
   userProp: '',
@@ -207,8 +207,32 @@ function ToggleComAction() {
 return comPropData.value.activeProp = comPropData.value.activeProp ? 'false' : 'true'
 }
 
+// Watchers properties //
+const counterWatch = ref(0);
 
+watch(counterWatch, (newCounterWatch, oldCounterWatch)=>{
+  console.log(`New Value ${newCounterWatch} and Old Value ${oldCounterWatch}`);
+});
+
+const moreWatchers = ref({
+  numberMoreWatch: 0,
+  otherWatcher: 'Other Watcher!'
+});
+
+watch(()=> moreWatchers.value.numberMoreWatch, (newMoreCounterWatch, oldMoreCounterWatch)=>{
+  console.log(`New Value ${newMoreCounterWatch} and Old Value ${oldMoreCounterWatch}`);
+});
+
+
+watch(()=> [moreWatchers.value.numberMoreWatch, moreWatchers.value.otherWatcher], (newMoreCounterWatch, oldMoreCounterWatch)=>{
+  console.log("New Array Count", newMoreCounterWatch);
+  console.log("Old Array Count", oldMoreCounterWatch);
+});
     
+// Shorthands // 
+
+
+
     // RETURN //
     return {
       greeting,
@@ -251,6 +275,8 @@ return comPropData.value.activeProp = comPropData.value.activeProp ? 'false' : '
       MessageComputed,
       ComutedAction,
       ToggleComAction,
+      counterWatch,
+      moreWatchers,
     }
   }
 }).mount("#app"); 

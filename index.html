@@ -214,7 +214,48 @@
       <h2> Action Toggle: -> {{ ComutedAction }} </h2>
     </div>
 </div>
+<hr>
+<!-- Watchers properties -->
+ <div class="watchers_props">
+   <h1>Watchers properties</h1>
+   <div>
+      <h2>
+        Count Watcher: {{ counterWatch }}
+      </h2>
+      <button v-on:click="counterWatch++"> Watcher Count++</button>
+   </div>
+   <hr>
+   <div>
+    <h2>
+      More Count Watcher: {{ moreWatchers.numberMoreWatch }}
+    </h2>
+    <button v-on:click="moreWatchers.numberMoreWatch++"> More Watcher Count++</button>
+ </div>
+ <hr>
+ <div>
+  <h2>
+    More Count Watcher Array: {{ moreWatchers.numberMoreWatch }}
+  </h2>
+  <button v-on:click="moreWatchers.numberMoreWatch++"> More Watcher With Array Count++</button>
+</div>
+ </div>
+ <hr>
+ <!-- Shorthands -->
+  <div class="shorthands">
+    <h1>Shorthands</h1>
+    <div>
+      <!--  -->
+    </div>
+  </div>
 
+
+
+
+
+
+
+
+ 
     <!-- END DIV  -->
   </div>
 </body>
@@ -222,6 +263,19 @@
 
 <!-- STYLE -->
 <style>
+
+/* Shorthands */
+
+.shorthands {
+  padding: 10px;
+  background-color: rgb(144, 123, 95);
+}
+
+  /* Watchers properties */
+  .watchers_props {
+    padding: 10px;
+  background-color: rgb(218, 187, 147);
+  }
 
 /* Computed Properties */
 .computd_props{
