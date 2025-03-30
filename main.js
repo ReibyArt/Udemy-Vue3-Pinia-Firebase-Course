@@ -229,7 +229,7 @@ watch(()=> [moreWatchers.value.numberMoreWatch, moreWatchers.value.otherWatcher]
   console.log("Old Array Count", oldMoreCounterWatch);
 });
     
-// Shorthands // 
+// Shorthands for v-bind and v-on // 
 
 
 
