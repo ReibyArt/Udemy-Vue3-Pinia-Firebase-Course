@@ -148,8 +148,8 @@ createApp({
   // Forms and V-MODEL //
 
   const nameForm = ref({
-    nameToForm: "",
-    lastNameToForm: "",
+    nameToForm: '',
+    lastNameToForm: '',
     ageToForm: 33,
     checkBoxModel: false,
   });
@@ -168,11 +168,28 @@ createApp({
       red: false
     });
 
-    // Working with styles part 2 //
+    // Working with styles part 2 Array in v-bind:class and v-bind:style //
+    const colorArrRedBlue = ref({
+      redClass: {
+        name: 'red',
+        active: true 
+      },
+
+      blueClass: {
+        name: 'blue',
+        active: false 
+      },
+      // ключи border and ... нужно писать как в CSS!!!!
+      newStyleArray: {
+        fontSize: "60px",
+        border: "5px solid green"
+      }
+    });
 
 
 
 
+    
     // RETURN //
     return {
       greeting,
@@ -209,7 +226,8 @@ createApp({
       nameForm,
       HandleFormVModel,
       redColorCss,
-      redBlueColorsCss
+      redBlueColorsCss,
+      colorArrRedBlue
     }
   }
 }).mount("#app"); 

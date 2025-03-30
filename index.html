@@ -182,10 +182,29 @@
     v-on:click="redBlueColorsCss.green = !redBlueColorsCss.green">
     Activate Green Header</h3>
     <hr>
-    <!-- Working with styles part 2 -->
-    <h1>Working with styles part 2</h1>
+    <!-- Working with styles part 2 Array in v-bind:class and v-bind:style -->
+    <h1>Working with styles part 2 Array in v-bind:class and v-bind:style</h1>
+
+    <div class="element_array" v-bind:class="[
+    colorArrRedBlue.redClass.active ? colorArrRedBlue.redClass.name : '', 
+    colorArrRedBlue.blueClass.active ? colorArrRedBlue.blueClass.name : '']"
+    v-bind:style="colorArrRedBlue.newStyleArray"
+    >
+      This is an element array class
+    </div>
+    <hr>
+    <h2 v-on:click="colorArrRedBlue.blueClass.active = !colorArrRedBlue.blueClass.active, colorArrRedBlue.newStyleArray.fontSize='30px'
+    ">
+      Change Color Array Class
+    </h2>
+
+    <!--  -->
   </div>
 </body>
+
+
+
+
 
 <!-- STYLE -->
 <style>
@@ -200,6 +219,12 @@
   .element_green{
     color: azure;
     background: rgb(48, 4, 4);
+    padding: 10px;
+  }
+
+  .element_array{
+    color: rgb(237, 237, 237);
+    background: rgb(172, 73, 73);
     padding: 10px;
   }
 
@@ -236,6 +261,8 @@
 <script src="main.js"></script>
 <!-- END SCRIPT -->
 
+
+<!--  -->
 <!-- return всегда должен возвращать что-то, иначе это не будет отражаться на странице в mustache! -->
 <!-- Option API можно использовать совместно с Composition API, но вроде не наоборот) -->
  <!-- С REF лучше использовать простые выражения и свойства, а с REACTIVE лучше работать с Watch, Computed Proprties. C ref нужно ставить value (car.value = 0) -->
