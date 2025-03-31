@@ -1,2 +1,4 @@
-﻿# Udemy-Vue3-Pinia-Firebase-Course
+# Привет! Это открытый репозиторий по прохождению курса по Vue 3)
+# Буду обновлять его по мере прохождения и готовые секции скидывать в Release
+ # Udemy-Vue3-Pinia-Firebase-Course
 # Start 03/23/2025
