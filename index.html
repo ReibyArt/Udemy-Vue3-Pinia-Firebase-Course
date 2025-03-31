@@ -12,40 +12,49 @@
 <!-- BODY -->
 <body>
   <div id="app">
-    <h1> {{ greeting }} </h1>
+
+
+    <div class="greeting_css">
+      <h1> {{ greeting }} </h1>
+      <hr>
+      <h2>Is It True OR False?: {{ isTrue ? "Yes. True!" : "No! False!" }} </h2>
+      <hr>
+      <h1> Games Objects</h1>
+      <hr>
+      <h2> {{ arrayOfNames[1] }} </h2>
+      <h3> {{ objectGames.Gothic }} </h3>
+      <h2> {{ arrayOfNames[0] }} </h2>
+      <h3> {{ objectGames.Phasmophobia }} </h3>
+    </div>
     <hr>
-    <h2>Is It True OR False?: {{ isTrue ? "Yes. True!" : "No! False!" }} </h2>
-    <hr>
-    <h1> Games Objects</h1>
-    <hr>
-    <h2> {{ arrayOfNames[1] }} </h2>
-    <h3> {{ objectGames.Gothic }} </h3>
-    <h2> {{ arrayOfNames[0] }} </h2>
-    <h3> {{ objectGames.Phasmophobia }} </h3>
-    <hr>
+    <div class="function_inside">
     <h1>Function inside Setup()</h1>
     <hr>
     <h2> {{ messageFromArrayFunction() }} </h2>
     <h2> {{messageFromFunction() }} </h2>
-    <hr>
-    <h1>Using Ref</h1>
-    <hr>
-    <h2>Value Reactive: {{ count }} </h2>
-     {{ changeValue() }} 
-    <hr>
-    <h2> Changing Ref For 3 sec:</h2>
-    <h2> {{ refObj.objCar }} </h2>
-    <h2> {{ refObj.objBike }} </h2>
-    <h2> {{ refObj.objHuman }} </h2>
-     {{ UpdateHuman() }}
-    <hr>
-    <h1>Using Reactive</h1>
-    <hr>
-    <h2> Changing Reactive For 2 sec:</h2>
-    <h2> {{ reactObj.objGame }} </h2>
-    <h2> {{ reactObj.objYearOfGame }} </h2>
-      {{ ReactiveShow() }}
+  </div>
+  <hr>
+  <div class="ref_using">
+      <h1>Using Ref</h1>
       <hr>
+      <h2>Value Reactive: {{ count }} </h2>
+      {{ changeValue() }} 
+      <hr>
+      <h2> Changing Ref For 3 sec:</h2>
+      <h2> {{ refObj.objCar }} </h2>
+      <h2> {{ refObj.objBike }} </h2>
+      <h2> {{ refObj.objHuman }} </h2>
+      {{ UpdateHuman() }}
+      <hr>
+      <h1>Using Reactive</h1>
+      <hr>
+      <h2> Changing Reactive For 2 sec:</h2>
+      <h2> {{ reactObj.objGame }} </h2>
+      <h2> {{ reactObj.objYearOfGame }} </h2>
+        {{ ReactiveShow() }}
+    </div>
+      <hr>
+      <div class="directive">
       <h1>Directive of Vue</h1>
       <hr>
       <div>
@@ -78,7 +87,8 @@
       <h3 v-show="true">I am here! CSS Display not NONE! V-SHOW is True!</h3>
       <h3 v-show="false">CSS Display equals === NONE</h3>
       <hr>
-      <h1>Looping</h1>
+
+      <h1>Looping V-FOR</h1>
       <h2 v-for="(nameLoop, index) in nameOfLoop">
         Index = {{ index }},  Element in Loop = {{ nameLoop}}
       </h2>
@@ -92,6 +102,7 @@
         </li>
       </ul>
       <hr>
+    
       <h1>Array Objects in the Loop</h1>
       <ul>
         <li >
@@ -106,7 +117,9 @@
       <h3 v-once> {{ nameVOnce }} </h3>
       <h3> {{ nameVOnce }} </h3>
       {{ UpdateNameVOnce() }}
-      <hr>
+    </div>
+    <hr>
+    <div class="events_on">
       <h1>Working with Events (v-on:click)</h1>
       <h2>
         {{ nameVOnClick }}
@@ -137,7 +150,9 @@
         <input type="text">
         <button type="submit"> Submit... </button>
       </form>
-      <hr>
+    </div>
+    <hr>
+    <div class="modelV">
       <h1> Forms and V-MODEL </h1>
     <div>
       <form v-on:submit.prevent="HandleFormVModel">
@@ -165,7 +180,8 @@
         <h3> Check Box: {{ nameForm.checkBoxModel }}</h3>  
       </form>
     </div>
-    <hr>
+  </div>
+  <hr>
 <div class="work_styles">
     <!-- Working with styles part 1 -->
      <h1>Working with styles part 1</h1>
@@ -208,11 +224,11 @@
     <button v-on:click="ToggleComAction"> Other Action </button>
     <hr>
     <div>
-     Message Computed: {{ MessageComputed }}
+        Message Computed: {{ MessageComputed }}
     </div>
-    <div>
-      <h2> Action Toggle: -> {{ ComutedAction }} </h2>
-    </div>
+      <div>
+          <h2> Action Toggle: -> {{ ComutedAction }} </h2>
+      </div>
 </div>
 <hr>
 <!-- Watchers properties -->
@@ -249,15 +265,6 @@
       <h2> v-on:click="" SHORT @:click="" </h2>
     </div>
   </div>
-
-
-
-
-
-
-
-
- 
     <!-- END DIV  -->
   </div>
 </body>
@@ -265,6 +272,33 @@
 
 <!-- STYLE -->
 <style>
+  .modelV{
+    padding: 10px;
+  background-color: rgb(131, 191, 82);
+  }
+
+.events_on{
+  padding: 10px;
+  background-color: rgb(98, 134, 69);
+}
+.directive {
+  padding: 10px;
+  background-color: rgb(120, 146, 98);
+}  
+.ref_using {
+  padding: 10px;
+  background-color: rgb(73, 66, 57);
+}
+
+.function_inside {
+  padding: 10px;
+  background-color: rgb(124, 108, 87);
+}
+
+.greeting_css {
+  padding: 10px;
+  background-color: rgb(167, 145, 116);
+}
 
 /* Shorthands */
 
