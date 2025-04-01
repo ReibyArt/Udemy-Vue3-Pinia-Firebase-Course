@@ -28,6 +28,12 @@
         <input type="text" v-model.trim="data.inputName"/>
         <button @click="addNameToList"> Add </button>
       </div>
+<!-- Error Message -->
+        <div 
+        class="error_label animate__animated animate__fadeInDown"
+        v-if="data.showError">
+       HEEELLLLPPPP {{ data.error }}
+        </div>
 
         <div class="list_of_names">
           <div
@@ -36,7 +42,6 @@
            :key="name" 
            class="animate__animated animate__fadeInLeft"
           >
-          
             {{ name }}
           </div>
         </div>
