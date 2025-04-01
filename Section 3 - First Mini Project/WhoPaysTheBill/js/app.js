@@ -1,6 +1,5 @@
 const { createApp, reactive, computed} = Vue;
 
-
 const DEFAULT_STATE = {
   state: true,
   input: '',
@@ -18,11 +17,24 @@ const data = reactive(DEFAULT_STATE);
 
 // Methods //
 const addNameToList = () => {
-
+  const userName = data.inputName;
+  // Add name in [] names
+  data.names.push(userName);
+  // Clear the input
+  data.inputName = '';
+  console.log(data.names);
 }
+
+
+// Remove names from array
+const removeName = (index) => {
+  data.names.splice(index, 1);
+}
+
     return {
-      data,
-      addNameToList
+      removeName,
+      addNameToList,
+      data
     }
   }
 }).mount('#app');
