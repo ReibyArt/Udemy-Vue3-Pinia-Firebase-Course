@@ -1,28 +1,43 @@
 <!-- App -->
  <template>
    <div>
-    <div>
-      <app-header/>
+     <app-header/>
+    <div class="container">
+      <div>
+      Content
+      </div>
     </div>
-     <h1>{{ nameMy }}</h1>
-     <div>
-       <Footer/>
-     </div>
    </div>
    
    
  </template>
 
-
-
 <!-- With Setup in Script! Very nice! -->
-
 <script setup>
 import { ref } from 'vue';
 // GET LOCAL COMPONENT //
 import Footer from './components/header_footer/Footer.vue';
   const nameMy = ref('Hello, ReibyArtGames with setup in script!');
 </script>
+
+
+
+<!-- Style is Global!  -->
+ <!-- Scoped --- this is for a local component! -->
+ <style>
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Robot', sans-serif;
+}
+.container{
+  min-height: 84vh;
+  box-sizing: border-box;
+  padding: 20px;
+}
+</style>
+
+
 
 
 
@@ -37,9 +52,3 @@ import Footer from './components/header_footer/Footer.vue';
     }
   }
 </script> -->
-
- <style>
- h1 {
-  color: magenta;
- }
-</style>
