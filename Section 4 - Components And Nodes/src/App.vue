@@ -1,48 +1,56 @@
 <!-- App -->
- <template>
-   <div>
-     <app-header/>
+<template>
+  <div>
+    <app-header />
     <div class="container">
       <div>
-      Content
+        <Profile :knownAs="dataName.alsoKnownAs" lastName=" Art (Not Reactive Prop)" />
       </div>
+      <button @click="updateName" class="btn">Update Name</button>
     </div>
-   </div>
-   
-   
- </template>
+  </div>
+</template>
 
 <!-- With Setup in Script! Very nice! -->
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
+import { reactive } from 'vue'
+
 // GET LOCAL COMPONENT //
-import Footer from './components/header_footer/Footer.vue';
-  const nameMy = ref('Hello, ReibyArtGames with setup in script!');
+import Profile from './components/User/Profile.vue'
+
+const dataName = reactive({
+  alsoKnownAs: 'Scump (From Parent Component App!)',
+})
+
+const updateName = () => {
+  dataName.alsoKnownAs = 'Games ((From Component App!))'
+}
+
+const nameMy = ref('Hello, ReibyArtGames with setup in script!')
 </script>
 
-
-
 <!-- Style is Global!  -->
- <!-- Scoped --- this is for a local component! -->
- <style>
+<!-- Scoped --- this is for a local component! -->
+<style>
 body {
   padding: 0;
   margin: 0;
   font-family: 'Robot', sans-serif;
 }
-.container{
+.container {
   min-height: 84vh;
   box-sizing: border-box;
   padding: 20px;
 }
+.btn {
+  padding: 10px;
+  margin: 10px;
+}
 </style>
 
-
-
-
-
 <!-- Without setup in script -->
- <!-- <script>
+<!-- <script>
   export default {
     setup() {
       const nameMy = 'Hello, ReibyArtGames!'
