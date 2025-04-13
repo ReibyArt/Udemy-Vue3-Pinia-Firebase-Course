@@ -5,12 +5,26 @@
       <li><span>Name: </span> {{ nameInProfile }}</li>
       <li><span>Last Name: </span> {{ userlastName }}</li>
       <li><span>Known As: </span> {{ knownAs }}</li>
+      <li><span>Age: </span> {{ userAge }}</li>
+      <hr>
+      <h3>Family:</h3>
+      <ul>
+        <li v-for="(value, key, index) in userParents" :key="index">
+          <span> {{ key }} - </span> {{ value }},
+        </li>
+      </ul>
     </ul>
   </div>
 </template>
 
 <script setup>
-const props = defineProps(['name', 'userlastName', 'knownAs'])
+// Using Object 
+const props = defineProps({ 
+userlastName: String, 
+knownAs: String,
+userAge: Number,
+userParents: Object,
+})
 const nameInProfile = 'Reiby (Profile Component)'
 </script>
 

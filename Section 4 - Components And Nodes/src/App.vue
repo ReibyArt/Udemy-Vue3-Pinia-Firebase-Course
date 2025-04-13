@@ -5,7 +5,10 @@
     <div class="container">
       <div>
         <Profile :knownAs="dataName.alsoKnownAs" 
-        :userlastName="dataName.userlastName"/>
+        :userlastName="dataName.userlastName"
+        :userAge="dataName.age"
+        :userParents="dataName.parents"/>
+        
       </div>
       <button @click="updateName" class="btn">Update Name</button>
     </div>
@@ -24,6 +27,13 @@ import Profile from './components/User/Profile.vue'
 const dataName = reactive({
   alsoKnownAs: 'Scump (From Parent Component App!)',
   userlastName: 'Art',
+  age: 32,
+  parents: {
+    father: 'Mario',
+    mother: 'Princess',
+    brother: 'Luigi',
+    sister: 'Mushroom',
+  }
 })
 const nameMy = ref('Hello, ReibyArtGames with setup in script!')
 // FUNCTIONS //
