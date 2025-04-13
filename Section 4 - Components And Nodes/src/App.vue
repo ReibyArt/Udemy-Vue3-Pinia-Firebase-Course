@@ -9,7 +9,8 @@
         :userAge="dataName.age"
         :userParents="dataName.parents"
         @update-lastname="dataName.userlastName = $event"
-        @say-hello="alertHello"/>
+        @say-hello="alertHello"
+        :updateAge="updateAgeFoo"/>
         
       </div>
       <button @click="updateName" class="btn">Update Name</button>
@@ -45,8 +46,11 @@ const alertHello = ()=>{
 }
 const updateName = () => {
   dataName.alsoKnownAs = 'Games ((From Component App!))'
-
 }
+// Changing Age
+const updateAgeFoo = (value) =>{
+  dataName.age = value;
+} 
 </script>
 
 <!-- Style is Global!  -->

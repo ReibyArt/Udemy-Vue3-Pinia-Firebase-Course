@@ -18,6 +18,8 @@
     <button @click="emit('update-lastname', 'Holmes')">Update From Child</button>
     <hr>
     <button @click="sayHello">Press to Hello Button</button>
+    <hr>
+    <button @click="updateAge(40)"> Update Age Up!</button>
   </div>
 </template>
 
@@ -30,6 +32,7 @@ userlastName: String,
 knownAs: String,
 userAge: Number,
 userParents: Object,
+updateAge: Function,
 })
 
 // Trigger function
