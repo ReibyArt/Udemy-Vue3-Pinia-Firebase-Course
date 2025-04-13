@@ -4,7 +4,8 @@
     <app-header />
     <div class="container">
       <div>
-        <Profile :knownAs="dataName.alsoKnownAs" lastName=" Art (Not Reactive Prop)" />
+        <Profile :knownAs="dataName.alsoKnownAs" 
+        :userlastName="dataName.userlastName"/>
       </div>
       <button @click="updateName" class="btn">Update Name</button>
     </div>
@@ -19,15 +20,19 @@ import { reactive } from 'vue'
 // GET LOCAL COMPONENT //
 import Profile from './components/User/Profile.vue'
 
+// VAR //
 const dataName = reactive({
   alsoKnownAs: 'Scump (From Parent Component App!)',
+  userlastName: 'Art',
 })
+const nameMy = ref('Hello, ReibyArtGames with setup in script!')
+// FUNCTIONS //
+
 
 const updateName = () => {
   dataName.alsoKnownAs = 'Games ((From Component App!))'
-}
 
-const nameMy = ref('Hello, ReibyArtGames with setup in script!')
+}
 </script>
 
 <!-- Style is Global!  -->
@@ -48,6 +53,14 @@ body {
   margin: 10px;
 }
 </style>
+
+
+
+
+
+
+
+
 
 <!-- Without setup in script -->
 <!-- <script>

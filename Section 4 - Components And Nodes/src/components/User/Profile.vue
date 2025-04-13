@@ -3,14 +3,14 @@
     <h3>User information</h3>
     <ul>
       <li><span>Name: </span> {{ nameInProfile }}</li>
-      <li><span>Last Name: </span> {{ lastName }}</li>
+      <li><span>Last Name: </span> {{ userlastName }}</li>
       <li><span>Known As: </span> {{ knownAs }}</li>
     </ul>
   </div>
 </template>
 
 <script setup>
-const props = defineProps(['name', 'lastName', 'knownAs'])
+const props = defineProps(['name', 'userlastName', 'knownAs'])
 const nameInProfile = 'Reiby (Profile Component)'
 </script>
 
