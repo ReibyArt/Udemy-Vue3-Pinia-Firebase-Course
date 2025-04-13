@@ -7,7 +7,9 @@
         <Profile :knownAs="dataName.alsoKnownAs" 
         :userlastName="dataName.userlastName"
         :userAge="dataName.age"
-        :userParents="dataName.parents"/>
+        :userParents="dataName.parents"
+        @update-lastname="dataName.userlastName = $event"
+        @say-hello="alertHello"/>
         
       </div>
       <button @click="updateName" class="btn">Update Name</button>
@@ -26,7 +28,7 @@ import Profile from './components/User/Profile.vue'
 // VAR //
 const dataName = reactive({
   alsoKnownAs: 'Scump (From Parent Component App!)',
-  userlastName: 'Art',
+  userlastName: 'Reiby',
   age: 32,
   parents: {
     father: 'Mario',
@@ -38,7 +40,9 @@ const dataName = reactive({
 const nameMy = ref('Hello, ReibyArtGames with setup in script!')
 // FUNCTIONS //
 
-
+const alertHello = ()=>{
+  alert('Hello From App And Profile.vue!');
+}
 const updateName = () => {
   dataName.alsoKnownAs = 'Games ((From Component App!))'
 

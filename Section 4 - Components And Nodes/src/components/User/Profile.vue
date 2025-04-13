@@ -14,10 +14,16 @@
         </li>
       </ul>
     </ul>
+    <hr>
+    <button @click="emit('update-lastname', 'Holmes')">Update From Child</button>
+    <hr>
+    <button @click="sayHello">Press to Hello Button</button>
   </div>
 </template>
 
 <script setup>
+// Using Emmits
+const emit = defineEmits(['update-lastname', 'say-hello']);
 // Using Object 
 const props = defineProps({ 
 userlastName: String, 
@@ -25,7 +31,19 @@ knownAs: String,
 userAge: Number,
 userParents: Object,
 })
-const nameInProfile = 'Reiby (Profile Component)'
+
+// Trigger function
+const sayHello = ()=>{
+  emit('say-hello');
+}
+const nameInProfile = 'Art (Profile Component)'
+
+
+
+
+// const updateLastName = () => {
+//   emit('update-lastname', 'Holmes');
+// }
 </script>
 
 <style scoped>
