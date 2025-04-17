@@ -4,7 +4,8 @@
     <app-header />
     <div class="container">
       <div>
-        <Profile :knownAs="dataName.alsoKnownAs" 
+        <Profile 
+        :knownAs="dataName.alsoKnownAs" 
         :userlastName="dataName.userlastName"
         :userAge="dataName.age"
         :userParents="dataName.parents"
@@ -28,7 +29,7 @@ import Profile from './components/User/Profile.vue'
 
 // VAR //
 const dataName = reactive({
-  alsoKnownAs: 'Scump (From Parent Component App!)',
+  alsoKnownAs: 'Scump',
   userlastName: 'Reiby',
   age: 32,
   parents: {

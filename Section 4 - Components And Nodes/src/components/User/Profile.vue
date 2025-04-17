@@ -28,9 +28,24 @@
 const emit = defineEmits(['update-lastname', 'say-hello']);
 // Using Object 
 const props = defineProps({ 
-userlastName: String, 
-knownAs: String,
-userAge: Number,
+userlastName: {
+  type: String,
+  required: true,
+  default: 'N/A - Missing somthing!'
+}, 
+knownAs: {
+  type: String,
+  validator(value) {
+    if(value === 'Scump' || value === 'Shredder'){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+},
+userAge: [Number, String],
 userParents: Object,
 updateAge: Function,
 })
