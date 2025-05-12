@@ -25,6 +25,19 @@
   <div>
     <Cars :cars="cars" />
   </div>
+  <div class="new-section">
+    <hr />
+    <h1>Slots</h1>
+    <hr />
+  </div>
+  <!-- SLOTS -->
+  <div>
+    <CarsBrand>
+      <ul>
+        <li v-for="(brand, index) in brands" :key="index"> {{ brand }}</li>
+      </ul>
+    </CarsBrand>
+    </div>
 </template>
 
 <!-- With Setup in Script! Very nice! -->
@@ -35,8 +48,12 @@ import { reactive } from 'vue'
 // GET LOCAL COMPONENT //
 import Profile from './components/User/Profile.vue'
 import Cars from './components/Cars/index.vue'
+import CarsBrand from './components/Cars/brands.vue'
 
 // VAR //
+
+// SLOTS //
+const brands = reactive(['Mazda', 'Honda', 'Renault'])
 const dataName = reactive({
   alsoKnownAs: 'Scump',
   userlastName: 'Reiby',
@@ -73,7 +90,7 @@ const updateAgeFoo = (value) => {
 
 <!-- Style is Global!  -->
 <!-- Scoped --- this is for a local component! -->
-<style>
+<style scoped>
 body {
   padding: 0;
   margin: 0;
@@ -90,6 +107,10 @@ body {
 }
 .new-section {
   background-color: rgb(49, 190, 91);
+}
+
+li {
+  color: red;
 }
 </style>
 
