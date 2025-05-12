@@ -33,11 +33,28 @@
   <!-- SLOTS -->
   <div>
     <CarsBrand>
-      <ul>
-        <li v-for="(brand, index) in brands" :key="index"> {{ brand }}</li>
-      </ul>
+      <template v-slot:brands>
+
+        <ul>
+          <li v-for="(brand, index) in brands" :key="index"> {{ brand }}</li>
+        </ul>
+      </template>
+
+      <template v-slot:namedSlot>
+        <div>
+          <h3>Named Slot</h3>
+        </div>
+      </template>
+      <strong>Default Slot</strong>
     </CarsBrand>
     </div>
+
+    <div class="new-section">
+    <hr />
+    <h1>Using the Lifecycles</h1>
+    <hr />
+  </div>
+  <div></div>
 </template>
 
 <!-- With Setup in Script! Very nice! -->
