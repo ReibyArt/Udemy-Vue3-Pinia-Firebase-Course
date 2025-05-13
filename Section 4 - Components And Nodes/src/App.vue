@@ -54,7 +54,15 @@
     <h1>Using the Lifecycles</h1>
     <hr />
   </div>
-  <div></div>
+  <!-- Lifcycles -->
+   <Life v-if="showIt"/>
+   <hr>
+   <div>
+    <button v-on:click="showIt = !showIt">Show/Hide Component</button>
+   </div>
+  <div>
+
+  </div>
 </template>
 
 <!-- With Setup in Script! Very nice! -->
@@ -66,11 +74,16 @@ import { reactive } from 'vue'
 import Profile from './components/User/Profile.vue'
 import Cars from './components/Cars/index.vue'
 import CarsBrand from './components/Cars/brands.vue'
+import Life from './components/Lifecycle/index.vue'
 
 // VAR //
 
 // SLOTS //
 const brands = reactive(['Mazda', 'Honda', 'Renault'])
+
+// Life //
+const showIt = ref(true);
+
 const dataName = reactive({
   alsoKnownAs: 'Scump',
   userlastName: 'Reiby',
