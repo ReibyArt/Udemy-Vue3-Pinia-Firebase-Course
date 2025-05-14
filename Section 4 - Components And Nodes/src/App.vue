@@ -31,52 +31,71 @@
     <hr />
   </div>
   <!-- SLOTS -->
-  <div>
-    <CarsBrand>
-      <template v-slot:brands>
+    <div>
+      <CarsBrand>
+        <template v-slot:brands>
 
-        <ul>
-          <li v-for="(brand, index) in brands" :key="index"> {{ brand }}</li>
-        </ul>
-      </template>
+          <ul>
+            <li v-for="(brand, index) in brands" :key="index"> {{ brand }}</li>
+          </ul>
+        </template>
 
-      <template v-slot:namedSlot>
-        <div>
-          <h3>Named Slot</h3>
-        </div>
-      </template>
-      <strong>Default Slot</strong>
-    </CarsBrand>
+        <template v-slot:namedSlot>
+          <div>
+            <h3>Named Slot</h3>
+          </div>
+        </template>
+        <strong>Default Slot</strong>
+      </CarsBrand>
     </div>
-
     <div class="new-section">
-    <hr />
-    <h1>Using the Lifecycles</h1>
-    <hr />
-  </div>
+        <hr />
+        <h1>Using the Lifecycles</h1>
+        <hr />
+    </div>
   <!-- Lifcycles -->
    <Life v-if="showIt"/>
    <hr>
    <div>
     <button v-on:click="showIt = !showIt">Show/Hide Component</button>
    </div>
-  <div>
-
-  </div>
+  
+    <div class="new-section">
+        <hr />
+        <h1>Using Dynamic Component</h1>
+        <hr />
+    </div>
+    <hr>
+    <div>
+      <!-- <Aranel v-if="activeComponent === Aranel" /> -->
+      <button v-on:click="activeComponent = Aranel">Aranel is Active (Default)</button>
+      <hr>
+      <!-- <Reiby v-if="activeComponent === Reiby" /> -->
+      <button v-on:click="activeComponent = Reiby">Reiby is Active</button>
+      <!-- Short -->
+       <component :is="activeComponent"></component>
+    </div>
 </template>
 
 <!-- With Setup in Script! Very nice! -->
 <script setup>
 import { ref } from 'vue'
 import { reactive } from 'vue'
+import { shallowRef } from 'vue'
 
 // GET LOCAL COMPONENT //
 import Profile from './components/User/Profile.vue'
 import Cars from './components/Cars/index.vue'
 import CarsBrand from './components/Cars/brands.vue'
 import Life from './components/Lifecycle/index.vue'
+import Aranel from './components/Players/Aranel.vue'
+import Reiby from './components/Players/Reiby.vue'
 
 // VAR //
+
+// Dynamics Component
+
+const activeComponent = shallowRef(Aranel);
 
 // SLOTS //
 const brands = reactive(['Mazda', 'Honda', 'Renault'])
