@@ -31,50 +31,58 @@
     <hr />
   </div>
   <!-- SLOTS -->
-    <div>
-      <CarsBrand>
-        <template v-slot:brands>
+  <div>
+    <CarsBrand>
+      <template v-slot:brands>
+        <ul>
+          <li v-for="(brand, index) in brands" :key="index">{{ brand }}</li>
+        </ul>
+      </template>
 
-          <ul>
-            <li v-for="(brand, index) in brands" :key="index"> {{ brand }}</li>
-          </ul>
-        </template>
-
-        <template v-slot:namedSlot>
-          <div>
-            <h3>Named Slot</h3>
-          </div>
-        </template>
-        <strong>Default Slot</strong>
-      </CarsBrand>
-    </div>
-    <div class="new-section">
-        <hr />
-        <h1>Using the Lifecycles</h1>
-        <hr />
-    </div>
+      <template v-slot:namedSlot>
+        <div>
+          <h3>Named Slot</h3>
+        </div>
+      </template>
+      <strong>Default Slot</strong>
+    </CarsBrand>
+  </div>
+  <div class="new-section">
+    <hr />
+    <h1>Using the Lifecycles</h1>
+    <hr />
+  </div>
   <!-- Lifcycles -->
-   <Life v-if="showIt"/>
-   <hr>
-   <div>
+  <Life v-if="showIt" />
+  <hr />
+  <div>
     <button v-on:click="showIt = !showIt">Show/Hide Component</button>
-   </div>
-  
-    <div class="new-section">
-        <hr />
-        <h1>Using Dynamic Component</h1>
-        <hr />
-    </div>
-    <hr>
-    <div>
-      <!-- <Aranel v-if="activeComponent === Aranel" /> -->
-      <button v-on:click="activeComponent = Aranel">Aranel is Active (Default)</button>
-      <hr>
-      <!-- <Reiby v-if="activeComponent === Reiby" /> -->
-      <button v-on:click="activeComponent = Reiby">Reiby is Active</button>
-      <!-- Short -->
-       <component :is="activeComponent"></component>
-    </div>
+  </div>
+
+  <div class="new-section">
+    <hr />
+    <h1>Using Dynamic Component</h1>
+    <hr />
+  </div>
+  <hr />
+  <div>
+    <!-- <Aranel v-if="activeComponent === Aranel" /> -->
+    <button v-on:click="activeComponent = Aranel">Aranel is Active (Default)</button>
+    <hr />
+    <!-- <Reiby v-if="activeComponent === Reiby" /> -->
+    <button v-on:click="activeComponent = Reiby">Reiby is Active</button>
+    <!-- Short -->
+    <!-- INCLUDE и EXCLUDE -- это для кеширования компонентов! -->
+    <KeepAlive include="Reiby" exclude="Aranel">
+      <component :is="activeComponent"></component>
+    </KeepAlive>
+  </div>
+  <div class="new-section">
+    <hr />
+    <h1>ТУЦ</h1>
+    <hr />
+  </div>
+  <hr />
 </template>
 
 <!-- With Setup in Script! Very nice! -->
@@ -95,13 +103,13 @@ import Reiby from './components/Players/Reiby.vue'
 
 // Dynamics Component
 
-const activeComponent = shallowRef(Aranel);
+const activeComponent = shallowRef(Aranel)
 
 // SLOTS //
 const brands = reactive(['Mazda', 'Honda', 'Renault'])
 
 // Life //
-const showIt = ref(true);
+const showIt = ref(true)
 
 const dataName = reactive({
   alsoKnownAs: 'Scump',
