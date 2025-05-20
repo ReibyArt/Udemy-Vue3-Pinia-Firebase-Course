@@ -79,7 +79,16 @@
   </div>
   <div class="new-section">
     <hr />
-    <h1>ТУЦ</h1>
+    <h1>Teleport</h1>
+    <hr />
+  </div>
+  <hr />
+  <div>
+    <div id="teleport"></div>
+  </div>
+  <div class="new-section">
+    <hr />
+    <h1>jhsdf</h1>
     <hr />
   </div>
   <hr />
