@@ -82,13 +82,26 @@
     <h1>Teleport</h1>
     <hr />
   </div>
+  <div>
+    <h3>Teleport is a Reiby Component!</h3>
+  </div>
   <hr />
   <div>
     <div id="teleport"></div>
   </div>
   <div class="new-section">
     <hr />
-    <h1>jhsdf</h1>
+    <h1>Custom Directives Part 1</h1>
+    <hr />
+  </div>
+  <hr />
+  <div>
+    <Directives />
+  </div>
+  <hr />
+  <div class="new-section">
+    <hr />
+    <h1>Custom Directives Part 2 HOOKS</h1>
     <hr />
   </div>
   <hr />
@@ -107,6 +120,7 @@ import CarsBrand from './components/Cars/brands.vue'
 import Life from './components/Lifecycle/index.vue'
 import Aranel from './components/Players/Aranel.vue'
 import Reiby from './components/Players/Reiby.vue'
+import Directives from './components/Directives/directive.vue'
 
 // VAR //
 
