@@ -105,6 +105,9 @@
     <hr />
   </div>
   <hr />
+  <div class="hooks">
+    <Index />
+  </div>
 </template>
 
 <!-- With Setup in Script! Very nice! -->
@@ -121,6 +124,7 @@ import Life from './components/Lifecycle/index.vue'
 import Aranel from './components/Players/Aranel.vue'
 import Reiby from './components/Players/Reiby.vue'
 import Directives from './components/Directives/directive.vue'
+import Index from './components/Directives/index.vue'
 
 // VAR //
 
@@ -191,6 +195,9 @@ body {
 
 li {
   color: red;
+}
+.hooks {
+  background-color: burlywood;
 }
 </style>
 

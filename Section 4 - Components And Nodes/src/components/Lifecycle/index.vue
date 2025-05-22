@@ -9,34 +9,41 @@
 </template>
 
 <script setup>
-import { onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted, ref } from 'vue';
+import {
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
+  ref,
+} from 'vue'
 
 // VAR //
-const text = ref('Some text');
+const text = ref('Some text')
 
 // HOOKS //
-onBeforeMount(()=>{
-  console.log('1 --> onBeforeMount');
+onBeforeMount(() => {
+  // console.log('1 --> onBeforeMount');
 })
 
-onMounted(()=>{
-  console.log('2 --> onMounted');
+onMounted(() => {
+  // console.log('2 --> onMounted');
 })
 
-onBeforeUpdate(()=>{
-  console.log('3 --> onBeforeUpdate');
+onBeforeUpdate(() => {
+  console.log('3 --> onBeforeUpdate')
 })
 
-onUpdated(()=>{
-  console.log('4 --> onUpdated');
+onUpdated(() => {
+  console.log('4 --> onUpdated')
 })
 
-onBeforeUnmount(()=>{
-  console.log('5 --> onBeforeUnmount');
+onBeforeUnmount(() => {
+  console.log('5 --> onBeforeUnmount')
 })
 
-onUnmounted(()=>{
-  console.log('6 --> onUnmounted');
+onUnmounted(() => {
+  console.log('6 --> onUnmounted')
 })
-
 </script>

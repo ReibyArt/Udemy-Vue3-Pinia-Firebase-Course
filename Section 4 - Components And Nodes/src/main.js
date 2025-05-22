@@ -41,6 +41,48 @@ app.directive('awesome', {
     // el.style.fontSize = binding.modifiers.small ? '10px' : '16px'
   }
 });
+// Custom directive hooks
+app.directive('hooks', {
+  // Hooks //
+  created(el) {
+    console.log('created');
+    console.log(el.parentNode + ' -> el.parent'); // NULL
+  },
+
+  // Hint! // 
+  beforeMount(el) {
+    console.log('beforeMount');
+    console.log(el.parentNode + ' -> el.parent'); // NULL
+
+    el.innerHTML = 'Hello from my directive hooks!'
+    console.log('My hook!');
+  },
+
+  mounted(el) {
+    console.log('mounted');
+    console.log(el.parentNode + ' -> el.parent'); // our div in index.vue
+
+  },
+
+  beforeUpdate(el, binding) {
+    console.log('beforeUpdate!')
+    console.log(el.parentNode);
+    el.innerHTML = binding.value;
+  },
+
+  updated(el) {
+    console.log('UPDATED!');
+    console.log(el.parentNode + ' -> el.parent'); // NULL
+  },
+
+  beforeUnmount() {
+    console.log('beforeUnmount!');
+  },
+
+  unmounted() {
+    console.log('unmounted! FINISH!');
+  }
+});
 
 // MAIN APP //
 app.mount("#app");
