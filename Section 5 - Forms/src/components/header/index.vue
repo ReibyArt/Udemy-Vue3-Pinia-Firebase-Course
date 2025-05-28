@@ -1,7 +1,8 @@
 
 <template>
     <header>
-         Forms
+         <strong>Reiby Art Games</strong>
+         <h3>Official Web Site</h3> 
     </header>
  </template>
  
@@ -24,6 +25,11 @@
          padding: 30px;
          color: #ffffff;
          font-size: 30px;
+     }
+     h3{
+        display: flex;
+        margin: auto;
+        padding: auto;
      }
      
  

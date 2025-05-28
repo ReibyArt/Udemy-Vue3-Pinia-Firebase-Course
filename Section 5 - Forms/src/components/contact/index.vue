@@ -2,17 +2,20 @@
     <form>
       <div class="row">
         <div class="col-xl-12">
-          <h1>Contact us</h1>
+          <h1>Contact with me</h1>
           <hr />
   
           <div class="mb-3">
-            <label for="name">Name</label>
+            <label for="name">Name 
+            </label>
             <input
-              type="text"
-              id="name"
-              class="form-control"
+            type="text"
+            id="name"
+            class="form-control"
+            v-model.lazy="formData.name"
             />
           </div>
+          
       
           <div class="mb-3">
             <label for="email">Email</label>
@@ -20,6 +23,7 @@
               type="email"
               id="email"
               class="form-control"
+              v-model="formData.email"
             />
           </div>
   
@@ -29,6 +33,7 @@
               type="text"
               id="subject"
               class="form-control"
+              v-model="formData.subject"
             />
           </div>
   
@@ -38,6 +43,7 @@
               class="form-control"
               rows="3"
               id="message"
+              v-model="formData.message"
             ></textarea>
           </div>
   
@@ -80,17 +86,45 @@
             
             <button
                 class="btn btn-primary"
+                @click.prevent="submitForm"
             >
             Submit
             </button>
   
-         
-        </div>
+          </div>
+          <!--  -->
+          
       </div>
+      <hr>
+          <div>
+            <h3>Our Data</h3>
+            <hr>
+            <span> {{  formData.name }}</span>
+            <hr>
+            <span> {{  formData.email }}</span>
+            <hr>
+            <span> {{  formData.subject }}</span>
+            <hr>
+            <span> {{  formData.message }}</span>
+          </div>
     </form>
   </template>
 
 
 <script setup>
+// Import 
+import { reactive } from 'vue';
+
+// Variables 
+const formData = reactive({
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+});
+
+const submitForm = () => {
+  console.log(JSON.stringify(formData));
+}
 
 </script>
