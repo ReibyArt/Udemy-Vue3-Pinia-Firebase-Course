@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form @submit="checkForm">
       <div class="row">
         <div class="col-xl-12">
           <h1>Contact with me</h1>
@@ -90,17 +90,24 @@
             
             <button
                 class="btn btn-primary"
-                @click.prevent="submitForm"
             >
             Submit
             </button>
-  
+            <hr>
+            <div v-if="errors.length">
+              <b>Ooops! Fix These Errors!!!</b>
+              <ul>
+                <li v-for="error in errors" :key="error">
+                  {{ error }}
+                </li>
+              </ul>
+            </div>
           </div>
           <!--  -->
           
       </div>
       <hr>
-          <div>
+          <!-- <div>
             <h3>Our Data</h3>
             <hr>
             <span> {{  formData.name }}</span>
@@ -110,7 +117,7 @@
             <span> {{  formData.subject }}</span>
             <hr>
             <span> {{  formData.message }}</span>
-          </div>
+          </div> -->
     </form>
   </template>
 
@@ -120,19 +127,44 @@
 import { reactive } from 'vue';
 
 // Variables 
+
 const formData = reactive({
-  name: '',
-  email: '',
-  subject: '',
-  message: '',
+  name:'',
+  email:'',
+  subject:'',
+  message:'',
   // newsletter: false,
   // promotions: false,
-  extras: [],
-  gender: 'alien',
+  extras:[],
+  gender:'alien',
 });
 
+// Checking Errors 
+const errors = reactive([]);
+
+// Check General Form
+const checkForm = (e) => {
+  e.preventDefault();
+  errors.splice(0);
+  console.log(errors + "Call of Event!!!");
+
+  // Check Name
+  if(!formData.name) {
+    errors.push("Sorry the name is required!");
+  }
+
+  // Check EMAIL Form
+  if(!formData.email) {
+    errors.push("Sorry the EMAIL is required!");
+  }
+  // If Does not an error if length array > 0!!!
+  if(!errors.length){
+    submitForm();
+  }
+}
+
+// Button Submit 
 const submitForm = () => {
   console.log(JSON.stringify(formData));
 }
-
 </script>
