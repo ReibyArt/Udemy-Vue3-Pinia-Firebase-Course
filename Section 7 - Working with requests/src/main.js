@@ -7,3 +7,6 @@ const app =  createApp(App);
 
 app.component('app-header',Header);
 app.mount('#app')
+
+
+// json-server --watch db.json --port 3004
