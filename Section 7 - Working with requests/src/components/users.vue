@@ -5,7 +5,7 @@
             <app-loader></app-loader>
         </div>
 
-        <div class="col-auto mb-4" v-for="user in data.users" :key="user.id">
+        <div class="col-auto mb-4" v-for="user in da ta.users" :key="user.id">
 
             <div class="card" style="width: 14rem;">
                 <img 
