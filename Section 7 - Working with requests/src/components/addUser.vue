@@ -19,40 +19,39 @@
 
         <button 
             class="btn btn-primary" 
-            @click.prevent="submitForm"
+            @click.prevent="addUser"
         >Submit</button>
 
     </div>
 </template>
 
 <script setup>
-    import axios from 'axios';
-    import { toast } from 'vue3-toastify';
-    import { reactive, ref } from 'vue';
+    import { reactive } from 'vue';
+    import postUser from './composables/postUser';
 
     const user = reactive({
         name:'',
         lastname:''
     });
+    
+    const { loading, addUser} = postUser(user);
 
-    const loading = ref(false);
+    // const submitForm = () => {
 
-    const submitForm = () => {
-
-        loading.value = true;
-        axios({
-            method: 'POST',
-            url: 'http://localhost:3004/users',
-            data: user,
-        })
-        .then(() => {
-            toast.success('Great! Done!');
-        })
-        .catch(() => {
-            toast.error('Sorry! Something wrong! Try again or later');
-        })
-        .finally(()=>{
-            loading.value = false;
-        })
-    }
+    //     loading.value = true;
+    //     axios({
+    //         method: 'POST',
+    //         url: 'http://localhost:3004/users',
+    //         data: user,
+    //     })
+    //     .then(() => {
+    //         toast.success('Great! Done!');
+    //     })
+    //     .catch(() => {
+    //         toast.error('Sorry! Something wrong! Try again or later');
+    //     })
+    //     .finally(()=>{
+    //         loading.value = false;
+    //     })
+    // }
 </script>
