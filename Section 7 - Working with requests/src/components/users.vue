@@ -5,7 +5,7 @@
             <app-loader></app-loader>
         </div>
 
-        <div class="col-auto mb-4" v-for="user in data.users" :key="user.id">
+        <div class="col-auto mb-4" v-for="user in da ta.users" :key="user.id">
 
             <div class="card" style="width: 14rem;">
                 <img 
@@ -28,31 +28,37 @@
 </template>
 
 <script setup>
-import axios from 'axios';
-import { toast } from 'vue3-toastify';
-import { onMounted, reactive } from 'vue';
+import getUsers from './composables/getUsers';
+const {data, loadUsers } = getUsers();
 
-const data = reactive({
-    loading: true,
-    users: []
-})
+loadUsers();
 
-const loadUsers = async() => {
-    try
-    {
-        const response = await axios.get('http://localhost:3004/users');
-        data.users = response.data;
-        data.loading = false;   
-    }
-    catch(errors)
-    {
-        toast.error('Sorry something wrong!!!');
-    } 
-}
-onMounted(()=>{
-    console.log('Get data from db.json');
-    loadUsers();
-})
+
+// import axios from 'axios';
+// import { toast } from 'vue3-toastify';
+// import { onMounted, reactive } from 'vue';
+
+// const data = reactive({
+//     loading: true,
+//     users: []
+// })
+
+// const loadUsers = async() => {
+//     try
+//     {
+//         const response = await axios.get('http://localhost:3004/users');
+//         data.users = response.data;
+//         data.loading = false;   
+//     }
+//     catch(errors)
+//     {
+//         toast.error('Sorry something wrong!!!');
+//     } 
+// }
+// onMounted(()=>{
+//     console.log('Get data from db.json');
+//     loadUsers();
+// })
 // Without async
 
 // axios.get('http://localhost:3004/users')
