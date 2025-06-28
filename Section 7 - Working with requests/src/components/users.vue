@@ -37,18 +37,30 @@ const data = reactive({
     users: []
 })
 
-const loadUsers = () => {
-    axios.get('http://localhost:3004/users')
-    .then(response =>{
+const loadUsers = async() => {
+    try
+    {
+        const response = await axios.get('http://localhost:3004/users');
         data.users = response.data;
         data.loading = false;   
-    })
-    .catch(error =>{
+    }
+    catch(errors)
+    {
         toast.error('Sorry something wrong!!!');
-    })
+    } 
 }
 onMounted(()=>{
     console.log('Get data from db.json');
     loadUsers();
 })
+// Without async
+
+// axios.get('http://localhost:3004/users')
+// .then(response =>{
+//     data.users = response.data;
+//     data.loading = false;   
+// })
+// .catch(error =>{
+//     toast.error('Sorry something wrong!!!');
+// })
 </script>
