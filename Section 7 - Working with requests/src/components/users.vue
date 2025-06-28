@@ -1,5 +1,10 @@
 <template>
     <div class="row">
+
+        <div v-if="data.loading">
+            <app-loader></app-loader>
+        </div>
+
         <div class="col-auto mb-4" v-for="user in data.users" :key="user.id">
 
             <div class="card" style="width: 14rem;">
@@ -24,9 +29,11 @@
 
 <script setup>
 import axios from 'axios';
+import { toast } from 'vue3-toastify';
 import { onMounted, reactive } from 'vue';
 
 const data = reactive({
+    loading: true,
     users: []
 })
 
@@ -34,10 +41,10 @@ const loadUsers = () => {
     axios.get('http://localhost:3004/users')
     .then(response =>{
         data.users = response.data;
-        console.log(response.data);
+        data.loading = false;   
     })
-    .catch(err =>{
-        console.log(err)
+    .catch(error =>{
+        toast.error('Sorry something wrong!!!');
     })
 }
 onMounted(()=>{
