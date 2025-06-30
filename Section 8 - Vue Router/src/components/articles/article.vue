@@ -73,6 +73,10 @@ import { onMounted, ref, watch } from 'vue';
 
 const route = useRoute();
 
+// Routes props
+const props = defineProps(['articleID']);
+console.log(props.articleID);
+
 const article = ref({});
 
 const loadArticleData = (articleID) => {
