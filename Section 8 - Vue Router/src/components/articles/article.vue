@@ -1,4 +1,5 @@
 <template>
+  <router-link to="/articles/3"> Go to article </router-link>
   <div v-if="Object.keys(article).length !== 0">
     <!-- <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
       <div class="col-md-6 px-0">
@@ -12,7 +13,6 @@
         </p>
       </div>
     </div> -->
-  
     <div class="row g-5">
       <div class="col-md-8">
         <h3 class="pb-4 mb-4 fst-italic border-bottom">{{ article.title}}</h3>
@@ -69,7 +69,7 @@
   <script setup>
 import { useRoute } from 'vue-router';
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 const route = useRoute();
 
@@ -81,6 +81,15 @@ const loadArticleData = (articleID) => {
     article.value = response.data;
   })
 }
+
+// Watch Отслеживает изменение в articleID и меняет, если они произошли
+// <router-link to="/articles/3"> Go to article </router-link> // 
+watch(
+  () => route.params.articleID,
+  async newId => {
+    loadArticleData(newId);
+  
+})
 
 onMounted(()=>{
   loadArticleData(route.params.articleID);
