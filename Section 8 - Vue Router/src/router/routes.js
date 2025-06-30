@@ -3,6 +3,7 @@ import Articles from '@/components/articles/index.vue';
 import Contact from '@/components/contact/index.vue';
 import Home from '@/components/home.vue';
 import Article from '@/components/articles/article.vue';
+import NotFound from '@/components/404.vue';
 
 
 // Props Function
@@ -32,6 +33,11 @@ const router = createRouter({
         // }}  - key передаём в article ( defineProps(['OUR_KEY']); ); 
         //
         {path: '/contact', component: Contact},
+
+        // Redirect path // 
+        // {path: '/contact', component: Contact, redirect: '/'},
+
+        {path: '/:NotFound(.*)', component: NotFound},
     ],
     linkActiveClass: 'active'
 });
