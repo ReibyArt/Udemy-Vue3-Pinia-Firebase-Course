@@ -5,6 +5,7 @@ import Home from '@/components/home.vue';
 import Article from '@/components/articles/article.vue';
 import NotFound from '@/components/404.vue';
 import Notify from '@/components/notify.vue';
+import Login from '@/components/login.vue';
 
 
 // Props Function
@@ -44,8 +45,31 @@ const router = createRouter({
         // {path: '/contact', component: Contact, redirect: '/'},
 
         {path: '/:NotFound(.*)*', component: NotFound},
+        {path: '/login', component: Login},
+
     ],
     linkActiveClass: 'active'
 });
+
+router.beforeEach((to, from, next)=>{
+
+    // User auth
+    const isAuth = true;
+
+    if(to.path === '/'){
+        next();
+    }
+    else {
+        if(to.path !== '/login' && !isAuth) return next({path:'/login'});
+        if(to.path === '/login' && isAuth) return next({path:'/'});
+        return next();
+    }
+
+    router.afterEach(()=>{
+        console.log('After routes')
+    })
+
+    
+})
 
 export default router;
