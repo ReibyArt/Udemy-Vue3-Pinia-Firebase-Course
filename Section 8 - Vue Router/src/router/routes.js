@@ -4,6 +4,7 @@ import Contact from '@/components/contact/index.vue';
 import Home from '@/components/home.vue';
 import Article from '@/components/articles/article.vue';
 import NotFound from '@/components/404.vue';
+import Notify from '@/components/notify.vue';
 
 
 // Props Function
@@ -34,12 +35,15 @@ const router = createRouter({
         // {path: '/articles/:articleID', component: Article, props: propsBack}
         // }}  - key передаём в article ( defineProps(['OUR_KEY']); ); 
         //
-        {path: '/contact', component: Contact},
+        {path: '/contact', components: {
+            default: Contact,
+            notify: Notify,
+        }, name: 'contact'},
 
         // Redirect path // 
         // {path: '/contact', component: Contact, redirect: '/'},
 
-        {path: '/:NotFound(.*)', component: NotFound},
+        {path: '/:NotFound(.*)*', component: NotFound},
     ],
     linkActiveClass: 'active'
 });
