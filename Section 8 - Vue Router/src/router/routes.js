@@ -16,13 +16,23 @@ import Login from '@/components/login.vue';
 //     }
 // }
 
+const checkAuth = () => {
+     const isAuth = true;
+        if(!isAuth) return '/login';
+        console.log(isAuth + ' is Auth');
+}
+
+const isAdmin = () => {
+    const isAdmin = true;
+    if(!isAdmin) return '/';
+    console.log(isAdmin + ' is Admin');
+}
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {path: '/', component: Home},
-        {path: '/articles', component: Articles, children: [
-            {path: ':articleID', component: Article, props: true},
-        ]},
+        {path: '/articles', component: Articles, beforeEnter: [checkAuth, isAdmin]}, 
         {path: '/articles/:articleID', component: Article, props: true},
         //
         // {path: '/articles/:articleID', component: Article, props: {
@@ -51,25 +61,25 @@ const router = createRouter({
     linkActiveClass: 'active'
 });
 
-router.beforeEach((to, from, next)=>{
+// router.beforeEach((to, from, next)=>{
 
-    // User auth
-    const isAuth = true;
+//     // User auth
+//     const isAuth = true;
 
-    if(to.path === '/'){
-        next();
-    }
-    else {
-        if(to.path !== '/login' && !isAuth) return next({path:'/login'});
-        if(to.path === '/login' && isAuth) return next({path:'/'});
-        return next();
-    }
+//     if(to.path === '/'){
+//         next();
+//     }
+//     else {
+//         if(to.path !== '/login' && !isAuth) return next({path:'/login'});
+//         if(to.path === '/login' && isAuth) return next({path:'/'});
+//         return next();
+//     }
 
-    router.afterEach(()=>{
-        console.log('After routes')
-    })
+//     router.afterEach(()=>{
+//         console.log('After routes')
+//     })
 
     
-})
+// })
 
 export default router;

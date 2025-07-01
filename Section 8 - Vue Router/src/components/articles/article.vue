@@ -67,9 +67,10 @@
   </template>
 
   <script setup>
-import { useRoute } from 'vue-router';
+import { useRoute, onBeforeRouteUpdate } from 'vue-router';
 import axios from 'axios';
 import { onMounted, ref, watch } from 'vue';
+
 
 const route = useRoute();
 
@@ -88,11 +89,15 @@ const loadArticleData = (articleID) => {
 
 // Watch Отслеживает изменение в articleID и меняет, если они произошли
 // <router-link to="/articles/3"> Go to article </router-link> // 
-watch(
-  () => route.params.articleID,
-  async newId => {
-    loadArticleData(newId);
-  
+// watch(
+//   () => route.params.articleID,
+//   async newId => {
+//     loadArticleData(newId);
+// })
+
+// Можно использовать onBeforeRouteUpdate или watch
+onBeforeRouteUpdate(async (to, from) =>{
+  loadArticleData(to.params.articleID)
 })
 
 onMounted(()=>{
