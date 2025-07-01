@@ -18,7 +18,9 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {path: '/', component: Home},
-        {path: '/articles', component: Articles},
+        {path: '/articles', component: Articles, children: [
+            {path: ':articleID', component: Article, props: true},
+        ]},
         {path: '/articles/:articleID', component: Article, props: true},
         //
         // {path: '/articles/:articleID', component: Article, props: {
