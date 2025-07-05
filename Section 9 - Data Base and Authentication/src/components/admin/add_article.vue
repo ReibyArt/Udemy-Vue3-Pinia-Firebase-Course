@@ -21,13 +21,24 @@
 </template>
 
 <script setup>
-  import { reactive } from 'vue';
+
+import { DB } from '@/firebase/config';
+import { collection, addDoc } from 'firebase/firestore';
+import { reactive } from 'vue';
+
   const formData = reactive({
     title:'',
     description:''
   });
 
-  const submitForm = () => {
-    console.log(formData);
+  const submitForm = async () => {
+    const notesCollection = collection(DB, 'notes');
+
+    await addDoc(notesCollection, {
+        ...formData
+    })
+
+    formData.title = '';
+    formData.description = '';
   }
 </script>
