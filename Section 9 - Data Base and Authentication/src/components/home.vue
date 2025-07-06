@@ -11,7 +11,7 @@
                         </div>
                         <div class="card-footer">
                             <router-link :to="`/admin/update_article/${ notes.id }`">
-                                Update Note
+                                Update
                             </router-link>
                         </div>
                     </div>
