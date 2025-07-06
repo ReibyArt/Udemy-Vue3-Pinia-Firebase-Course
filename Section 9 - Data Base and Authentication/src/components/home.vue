@@ -9,6 +9,11 @@
                             <h5 class="card-title">{{notes.title}}</h5>
                             <p class="card-text">{{ notes.description }}</p>
                         </div>
+                        <div class="card-footer">
+                            <router-link :to="`/admin/update_article/${ notes.id }`">
+                                Update Note
+                            </router-link>
+                        </div>
                     </div>
                 </div>
     </div> 
