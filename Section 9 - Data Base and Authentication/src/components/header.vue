@@ -18,7 +18,11 @@
             <router-link to="/users/register" class="nav-link">Register</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="#" class="nav-link">Logout</router-link>
+            <p
+            role="button" 
+            class="nav-link"
+            @click="handlSignOut"
+            >Logout</p>
           </li>
           <li class="nav-item">
             <router-link to="/admin/add_article" class="nav-link">Add</router-link>
@@ -28,6 +32,19 @@
     </div>
   </template>
   
+
+<script setup>
+import { AUTH } from '@/firebase/config';
+import { signOut } from 'firebase/auth';
+
+const handlSignOut = () => {
+    signOut(AUTH);
+    console.log("User is sign out!");
+}
+
+
+</script>
+
   <style>
   body {
     padding: 0;
