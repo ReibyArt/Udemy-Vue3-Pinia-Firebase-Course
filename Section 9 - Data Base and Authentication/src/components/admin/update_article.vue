@@ -2,7 +2,7 @@
     <div class="row justify-content-md-center">
         <div class="col col-lg-5">
             <h1>Update article</h1>
-            <form @submit.prevent="submitForm">
+            <form @submit.prevent="updateForm">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" v-model="formData.title">
@@ -67,11 +67,12 @@ const router = useRouter();
     }
   }
 
-// Submit Update //
-  const submitForm = async () => {
+// Update //
+  const updateForm = async () => {
     try{
         const docRef = doc(DB, 'notes', route.params.id);
         await updateDoc(docRef, {...formData});
+        router.push('/');
     }
     catch(err){
         console.log(err);
