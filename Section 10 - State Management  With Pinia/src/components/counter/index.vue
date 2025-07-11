@@ -14,6 +14,16 @@
           </button>
         </div>
       </div>
+      <div>
+        <button
+        type="button" 
+        class="btn btn-outline-secondary px-3 py-3 my-4 text-center"
+        @click="getPrizeHandler">
+        Get Prize
+      </button>
+      <p class="display-5 fw-bold"> Attemts: {{  store.getAttampts }}</p>
+      </div>
+      
     </div>
   </template>
 
@@ -24,7 +34,7 @@
   const store = useCounterStore();
 
   // Computed Properties
-  const count = computed(() => store.counter);
+  const count = computed(() => store.getCount);
 
   // Mutations
   const add = () => {
@@ -33,6 +43,10 @@
 
     const sub = () => {
     store.counter--
+  }
+
+  const getPrizeHandler = () => {
+    alert('Your Prize is ' + store.getPrize);
   }
 
 

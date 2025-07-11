@@ -41,7 +41,7 @@
   const store = useCounterStore();
 
   // Computed Properties
-  const count = computed(() => store.counter);
+  const count = computed(() => store.getCount);
 
   // Mutations
   const add = () => {
