@@ -1,8 +1,10 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
+import axios from 'axios';
 
 export const useCounterStore = defineStore('counter', {
   state: () => ({
-    counter: 10,
+    posts: [],
+    counter: 0,
     attemts: 0,
     prizes: [
         'Car',
@@ -17,6 +19,7 @@ export const useCounterStore = defineStore('counter', {
         year: 2011
     }
   }),
+
   // Gettets => Computed Properties in Vue
   getters: {
     getCount(state) {
@@ -36,6 +39,34 @@ export const useCounterStore = defineStore('counter', {
     getAttampts(state) {
         return state.attemts;
     }
+  },
+
+  // Actions are equivalent of methods in components (Mutations ????)
+  actions: {
+
+    // NOT ASYNC
+    add() {
+        this.counter++
+    },
+
+    sub() {
+        this.counter--
+    },
+    // ASYNC
+    async getPosts(limit) {
+        try {
+            // const response = await axios.get('https:/jsonplaceholder.typicode.com/posts')
+            // Get limit posts
+            const response = await axios.get(`https:/jsonplaceholder.typicode.com/posts?_limit=${limit}`)
+            this.add();
+            console.log(this.getCount)
+            this.posts = response.data;
+            console.log(this.posts);
+        }
+        catch(err) {
+            console.log(err);
+        }
+    } 
   } 
 })
 

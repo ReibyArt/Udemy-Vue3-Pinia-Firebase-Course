@@ -5,11 +5,11 @@
         <p class="lead mb-4">{{ count }}</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <button type="button" class="btn btn-primary btn-lg px-4 gap-3"
-          @click="add">
+          @click="store.add">
             +
           </button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4"
-           @click="sub">
+           @click="store.sub">
             -
           </button>
         </div>
@@ -37,13 +37,13 @@
   const count = computed(() => store.getCount);
 
   // Mutations
-  const add = () => {
-    store.counter++
-  }
+  // const add = () => {
+  //   store.counter++
+  // }
 
-    const sub = () => {
-    store.counter--
-  }
+  //   const sub = () => {
+  //   store.counter--
+  // }
 
   const getPrizeHandler = () => {
     alert('Your Prize is ' + store.getPrize);

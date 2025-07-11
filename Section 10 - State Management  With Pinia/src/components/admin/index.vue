@@ -14,9 +14,9 @@
         <br />
   
         <button type="button" class="btn btn-primary me-3"
-        @click="add">+</button>
+        @click="store.add">+</button>
         <button type="button" class="btn btn-outline-secondary"
-        @click="sub">-</button>
+        @click="store.sub">-</button>
       </div>
       <hr />
       <div>
@@ -26,10 +26,23 @@
 
         <button
         type="button" 
-        class="btn btn-outline-secondary"
+        class="btn btn-outline-secondary mb-4"
         @click="patchState">
         Patch Global State From Pinia
         </button>
+      </div>
+      <div>
+      <hr />
+      <p>Actions With Pinia</p>
+      <button type="button" class="btn btn-outline-secondary mb-4" @click="store.getPosts(10)">
+        Get Posts
+      </button>
+        <ul>
+          <li v-for="(post) in store.posts" :key="post.id" >
+            {{ post.title }}
+          </li>
+        </ul>
+      
       </div>
     </div>
   </template>
@@ -44,13 +57,13 @@
   const count = computed(() => store.getCount);
 
   // Mutations
-  const add = () => {
-    store.counter++
-  }
+  // const add = () => {
+  //   store.counter++
+  // }
 
-    const sub = () => {
-    store.counter--
-  }
+  //   const sub = () => {
+  //   store.counter--
+  // }
 
   // Mutations multiply
   const patchState = () => {
