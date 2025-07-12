@@ -1,4 +1,10 @@
 <template>
-  <h1>This is APP.VUE</h1>
-  <RouterView></RouterView>
+  <div>
+    <Header/>
+    <RouterView></RouterView>
+  </div>
 </template>
+
+<script setup>
+import Header from './components/navigation/header.vue';
+</script>
