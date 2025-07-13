@@ -31,6 +31,14 @@ export const useUserStore = defineStore('user', {
             this.auth = true;
         },
 
+        // LOG OUT 
+        async signUserOut() {
+            await signOut(AUTH);
+            this.user = DEFAULT_USER;
+            this.auth = false;
+            router.push('/');
+        },
+
         // AUTO SIGN IN USER
         async autoSignIn(uid) {
             try{
