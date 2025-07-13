@@ -84,6 +84,10 @@
  import * as yup from 'yup';
  import { ref } from 'vue';
 
+ /// TOASTS
+ import  { useToast } from 'vue-toastification';
+ const $toast = useToast();
+
  // AUTH STORE //
  import { useUserStore } from '@/stores/user';
  const userStore = useUserStore();
@@ -108,4 +112,16 @@ function onSubmit(values, { resetForm }) {
         userStore.signIn(values);
     }
 }
+
+// SUBSCRIBE TO ERROR
+userStore.$onAction(({name, after, onError}) => {
+    if(name === 'register' || name === 'signIn') {
+        after(() => {
+            $toast.success('Welcome!!!!');
+        })
+        onError((error) => {
+            $toast.error(error.message);
+        })
+    }
+});
 </script>

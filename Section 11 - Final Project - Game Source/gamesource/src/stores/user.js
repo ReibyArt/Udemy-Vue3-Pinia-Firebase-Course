@@ -5,6 +5,7 @@ import router from '@/router';
 import { AUTH, DB } from "@/utils/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { getDoc, doc, setDoc, updateDoc } from "firebase/firestore";
+import  errorCodes  from "@/utils/fbcodes";
 
 const DEFAULT_USER = {
     uid: null,
@@ -38,7 +39,7 @@ export const useUserStore = defineStore('user', {
                 }
                 return useRef.data();
             } catch(error) {
-                throw new Error(error.code);
+                throw new Error(errorCodes(error.code));
             }
         },
 
@@ -59,7 +60,7 @@ export const useUserStore = defineStore('user', {
                 console.log('User is Sign In');
                 router.push({name: 'dashboard'});
             } catch(error) {
-                throw new Error(error.code);
+                throw new Error(errorCodes(error.code));
             }
             finally {
                 this.loading = false;
@@ -91,7 +92,7 @@ export const useUserStore = defineStore('user', {
                 console.log('You are registred!');
             } catch(error) 
             {
-                throw new Error(error.code);
+                throw new Error(errorCodes(error.code));
             } finally 
             {
                 this.loading =false;
