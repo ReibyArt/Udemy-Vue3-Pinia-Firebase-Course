@@ -31,6 +31,18 @@ export const useUserStore = defineStore('user', {
             this.auth = true;
         },
 
+        // AUTO SIGN IN USER
+        async autoSignIn(uid) {
+            try{
+                const userData = await this.getUserProfile(uid);
+                //  UPDATE LOCAL STATE
+                this.setUser(userData);
+                return true;
+            } catch(error) {
+                console.log(error);
+            }
+        },
+
         async getUserProfile(uid) {
             try{
                 const useRef = await getDoc(doc(DB, 'users', uid));

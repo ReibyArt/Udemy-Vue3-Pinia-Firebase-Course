@@ -18,12 +18,25 @@ import * as directives from 'vuetify/directives'
 import { createVuetify } from 'vuetify'
 
 
+/// FIREBASE
+import { AUTH } from './utils/firebase'
+import { onAuthStateChanged } from 'firebase/auth'
+
+
 const vuetify = createVuetify({ components, directives })
-const app = createApp(App)
 
-app.use(vuetify)
-app.use(ToastPlugin)
-app.use(createPinia())
-app.use(router)
 
-app.mount('#app')
+let app;
+
+// AUTO SIGN IN AFTER PAGE UPDATE
+onAuthStateChanged(AUTH, () => {
+    if(!app) {
+        app = createApp(App)
+        app.use(vuetify)
+        app.use(ToastPlugin)
+        app.use(createPinia())
+        app.use(router)
+
+        app.mount('#app')
+    }
+})
