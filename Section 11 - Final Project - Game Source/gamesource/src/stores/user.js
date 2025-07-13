@@ -24,12 +24,49 @@ export const useUserStore = defineStore('user', {
 
     },
     actions: {
-        // 
+        // USER LOCAL STATE 
         setUser(user) {
-            this.user = { ...this.user, ...user }
+            this.user = { ...this.user, ...user };
             this.auth = true;
         },
 
+        async getUserProfile(uid) {
+            try{
+                const useRef = await getDoc(doc(DB, 'users', uid));
+                if(!useRef.exists()){
+                    throw new Error('Could not find user!')
+                }
+                return useRef.data();
+            } catch(error) {
+                throw new Error(error.code);
+            }
+        },
+
+
+        // SIGN IN USER
+        async signIn(formData) {
+            try {
+                this.loading = true;
+                const response = await signInWithEmailAndPassword(
+                    AUTH, 
+                    formData.email, 
+                    formData.password
+                );
+
+                /// GET USER DATA
+                const userData = await this.getUserProfile(response.user.uid);
+                this.setUser(userData);
+                console.log('User is Sign In');
+                router.push({name: 'dashboard'});
+            } catch(error) {
+                throw new Error(error.code);
+            }
+            finally {
+                this.loading = false;
+            }
+        },
+
+        // REGISTER USER
         async register(formData){
             try {
                 this.loading = true;
@@ -37,8 +74,8 @@ export const useUserStore = defineStore('user', {
                 const response = await createUserWithEmailAndPassword(
                     AUTH, formData.email, formData.password
                 );
-                // ADD USER IN DB
 
+                // ADD USER IN DB
                 const newUser = {
                     uid: response.user.uid,
                     email: response.user.email,
@@ -52,11 +89,11 @@ export const useUserStore = defineStore('user', {
                 // REDIRECT USER 
                 router.push({name: 'dashboard'});
                 console.log('You are registred!');
-
-
-            } catch(error) {
+            } catch(error) 
+            {
                 throw new Error(error.code);
-            } finally {
+            } finally 
+            {
                 this.loading =false;
             }
         }
