@@ -77,8 +77,8 @@ export const useUserStore = defineStore('user', {
                 /// GET USER DATA
                 const userData = await this.getUserProfile(response.user.uid);
                 this.setUser(userData);
-                console.log('User is Sign In');
                 router.push({name: 'dashboard'});
+                console.log('User is Sign In');
             } catch(error) {
                 throw new Error(errorCodes(error.code));
             }
