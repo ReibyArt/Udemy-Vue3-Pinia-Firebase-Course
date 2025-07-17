@@ -8,7 +8,7 @@ const ArticleSchema = {
     excerpt: yup.string().required('The game is required!')
             .min(100, 'Make the title bigger!')
             .max(900, 'Make the title shorter!'),
-    // editor: yup.string().required()
+    editor: yup.string().required('Editor is required'),
     rating: yup.string().required('The rating is required!')
             .notOneOf(['Select a rating'], 'You need select a rating'),
     image: yup.string().required('The IMG is required!')
