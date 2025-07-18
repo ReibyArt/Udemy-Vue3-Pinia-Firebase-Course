@@ -22,7 +22,9 @@ export const useUserStore = defineStore('user', {
         auth: false,
     }),
     getters:{
-
+        getUserData(state){
+            return state.user;
+        }
     },
     actions: {
         // USER LOCAL STATE 

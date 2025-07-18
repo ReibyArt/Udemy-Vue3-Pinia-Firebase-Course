@@ -19,13 +19,31 @@ export const useArticleStore = defineStore ('article', {
 
     getters: {},
     actions: {
-        async addArticle() {
+        async addArticle(formData) {
             try {
+                // GET USER DATA (PROFILE)
+                const userStore = useUserStore();
+                const user = userStore.getUserData;
 
+                //POST DOC IN DB 
+                const newArticle = doc(ArticlesCol);
+                await setDoc(newArticle, {
+                    timestamp: serverTimestamp(),
+                    owner: {
+                        uid: user.uid,
+                        firstname: user.firstname,
+                        lastname: user.lastname,
+                    },
+                    ...formData
+                });
+
+                router.push({ name: 'admin_articles', query: {reload: 'true'}});
+                console.log(user.firstname + ' ' + user.lastname);
+                return true;
             }
             catch(error)
             {
-                throw new Error(error.code);
+                throw new Error(error);
             }
         }
     }
