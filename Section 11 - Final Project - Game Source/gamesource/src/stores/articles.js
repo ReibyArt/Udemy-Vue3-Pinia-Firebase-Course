@@ -19,6 +19,22 @@ export const useArticleStore = defineStore ('article', {
 
     getters: {},
     actions: {
+        async getArticleById(id) {
+            try{
+                const docRef = await getDoc(doc(DB, 'articles', id));
+                console.log("Данные документа:", docRef.data());
+                if(!docRef.exists()){
+                    throw new Error ('Could not find document in DB!');
+                }
+                // Return Data from DB
+                return docRef.data();
+            }
+            catch(error){
+                console.log(error);
+                router.push({name: '404'});
+            }
+        },
+         
         async addArticle(formData) {
             try {
                 // GET USER DATA (PROFILE)
