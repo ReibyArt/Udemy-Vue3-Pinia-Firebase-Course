@@ -45,9 +45,10 @@
 <script setup>
     import { Editor, EditorContent } from '@tiptap/vue-3';
     import StarterKit from '@tiptap/starter-kit';
+    import { watch } from 'vue';
 
-
-    const emit = defineEmits(['update'])
+    const emit = defineEmits(['update']);
+    const props = defineProps(['content']); // Efit (1)
 
     const editor = new Editor({
         content: '',
@@ -55,6 +56,17 @@
         onUpdate: ()=>{
             emit('update', editor.getHTML());
         }
+    });
+
+    watch(()=>props.content, ()=> { // (3) 
+        LoadContent();
     })
 
+    function LoadContent() { // (2)
+        if(props.content) {
+            editor.commands.setContent(props.content);
+        }
+    }
+
+ LoadContent(); // 3
 </script>

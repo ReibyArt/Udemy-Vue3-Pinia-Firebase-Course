@@ -1,15 +1,15 @@
 <template>
-    <h1>Add Article</h1>
+    <h1>Edit Article</h1>
     <hr>
     <!-- Loader  -->
 
-    <div class="text-center m-3" v-show="loading">
+    <!-- <div class="text-center m-3" v-show="loading">
         <v-progress-circular
             indeterminate
             color="primary"
         />
-    </div>
-    <Form class="mb-5" @submit="onSubmit" :validation-schema="ArticleSchema" v-show="!loading">
+    </div> -->
+    <Form class="mb-5" @submit="onSubmit" :validation-schema="ArticleSchema">
             <div class="mb-4">
                 <!-- Name of the game -->
                 <Field 
@@ -133,8 +133,14 @@
             </div>
 
             <!--  Button  -->
-              <v-btn type="submit" variant="outlined">
-                Add Article
+              <v-btn 
+              type="submit" 
+              variant="outlined"
+              :disabled="loading"
+              :loading="loading"
+              >
+              
+                Update Article
               </v-btn>
 
     </Form>
@@ -165,7 +171,11 @@ const veditor = ref('');
 const article = ref({});
 
 function onSubmit(values, { resetForm}) {
-    
+    loading.value = true;
+    articleStore.updateArticle(route.params.id, values)
+    .finally(()=>{
+        loading.value = false;
+    })
 }
 
 function updateEditor(value) {
@@ -178,6 +188,7 @@ articleStore.getArticleById(route.params.id)
 .then((response) => {
     console.log('Данные в RESPONSE ' + response);
     article.value = { ...response };
+    updateEditor(response.editor);
     loading.value = false;
     console.log('Данные в ARTICLE.VALUE' + article.value)
 })
