@@ -81,6 +81,27 @@ export const useArticleStore = defineStore ('article', {
             {
                 throw new Error(error);
             }
+        },
+        async adminGetArticles(docLimit) {
+            try{
+                // Создает новый неизменяемый экземпляр запроса, который также расширяется и включает дополнительные ограничения запроса.
+                const q = query(ArticlesCol, orderBy('timestamp', 'desc'), limit(docLimit)); 
+                // Выполняет запрос и возвращает результаты в виде QuerySnapshot.
+                const querySnapshot = await getDocs(q);
+                
+                const lastVisable = querySnapshot.docs[querySnapshot.docs.length-1];
+                const articles = querySnapshot.docs.map(doc => ({
+                     
+                        id: doc.id,
+                        ...doc.data()
+                }));
+                this.adminArticles = articles;
+                this.adminLastVisable = lastVisable;
+            }
+            catch(error) {
+                $toast.success(error.message);
+                throw new Error(error);
+            }
         }
     }
 })
