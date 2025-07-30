@@ -53,7 +53,21 @@
                     </tr>
                  </tbody>
             </v-table>
-        </div>
+            <div class="text-center m-3" v-if="btnLoad">
+                <v-progress-circular
+                 indeterminate
+                 color="primary"
+                />
+            </div>
+                <v-btn
+                    v-else
+                    variant="outlined"
+                    class="m-3"
+                    @click="LoadMoreArticles()"
+                >
+                    Get More Articles
+                </v-btn>
+    </div>
 </template>
 
 <script setup>
@@ -72,6 +86,12 @@ const route = useRoute();
 const loading = ref(false);
 const btnLoad = ref(false);
 
+// Load more articles
+const LoadMoreArticles = () => {
+    btnLoad.value = true;
+    articleStore.AdminGetMoreArticles(3)
+    .finally(()=>{btnLoad.value = false;})
+}
 
 /// Get first articles ///
 if(!articleStore.adminArticles || route.query.reload) {
@@ -81,6 +101,4 @@ if(!articleStore.adminArticles || route.query.reload) {
     loading.value = false;
 })
 }
-
-
 </script>

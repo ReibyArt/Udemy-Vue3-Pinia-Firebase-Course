@@ -38,7 +38,7 @@ export const useArticleStore = defineStore ('article', {
                 throw new Error(error)
             }
         }, 
-
+        //
         async getArticleById(id) {
             try{
                 const docRef = await getDoc(doc(DB, 'articles', id));
@@ -54,7 +54,7 @@ export const useArticleStore = defineStore ('article', {
                 router.push({name: '404'});
             }
         },
-         
+        //
         async addArticle(formData) {
             try {
                 // GET USER DATA (PROFILE)
@@ -82,6 +82,36 @@ export const useArticleStore = defineStore ('article', {
                 throw new Error(error);
             }
         },
+        // More Articles Add //
+        async AdminGetMoreArticles (docLimit) {
+            try{
+                if(this.adminLastVisable) {
+                    let oldArticles = this.adminArticles;
+                    const q = query(
+                        ArticlesCol,
+                        orderBy('timestamp', 'desc'),
+                        startAfter(this.adminLastVisable),
+                        limit(docLimit));
+                const querySnapshot = await getDocs(q);
+                const lastVisable = querySnapshot.docs[querySnapshot.docs.length-1];
+                const newArticles = querySnapshot.docs.map(doc => ({
+                        id: doc.id,
+                        ...doc.data()
+                }));
+
+                this.adminArticles = [
+                    ...oldArticles,
+                    ...newArticles
+                ];
+
+                this.lastVisable = lastVisable;
+                }
+            }
+            catch(error) {
+                throw new Error(error);
+            }
+        },
+        // 
         async adminGetArticles(docLimit) {
             try{
                 // Создает новый неизменяемый экземпляр запроса, который также расширяется и включает дополнительные ограничения запроса.
