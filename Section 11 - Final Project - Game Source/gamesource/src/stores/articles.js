@@ -129,9 +129,26 @@ export const useArticleStore = defineStore ('article', {
                 this.adminLastVisable = lastVisable;
             }
             catch(error) {
-                $toast.success(error.message);
+                $toast.error(error.message);
                 throw new Error(error);
             }
+        },
+        // Delete Article By ID
+        async removeById(articleID) {
+            try{
+                await deleteDoc(doc(DB, 'articles', articleID));
+                // Update List Articles
+                const newList = this.adminArticles.filter(x=>{
+                    return x.id != articleID
+                });
+                this.adminArticles = newList;
+                // Show toast
+                $toast.success('Removed');
+            }catch(error) {
+                $toast.error(error.message);
+                throw new Error(error);
+            }
+
         }
     }
 })

@@ -36,6 +36,7 @@
                                 variant="outlined"
                                 color="red"
                                 size="small"
+                                @click="removeHandler(article.id)"
                             >
                             Remove
                             </v-btn>
@@ -85,6 +86,16 @@ const route = useRoute();
 
 const loading = ref(false);
 const btnLoad = ref(false);
+
+
+// Remove By ID
+const removeHandler = (articleID) => {
+    loading.value = true;
+    articleStore.removeById(articleID)
+    .finally(() => {
+        loading.value = false;
+    })
+}
 
 // Load more articles
 const LoadMoreArticles = () => {
