@@ -18,6 +18,9 @@ import * as directives from 'vuetify/directives'
 import { createVuetify } from 'vuetify'
 
 
+// MASONRY 
+import { VueMasonryPlugin } from 'vue-masonry';
+
 /// FIREBASE
 import { AUTH } from './utils/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -36,6 +39,7 @@ onAuthStateChanged(AUTH, () => {
         app.use(ToastPlugin)
         app.use(createPinia())
         app.use(router)
+        app.use(VueMasonryPlugin)
 
         app.mount('#app')
     }

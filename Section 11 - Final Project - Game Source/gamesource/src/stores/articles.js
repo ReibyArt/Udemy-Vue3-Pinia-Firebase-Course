@@ -24,8 +24,10 @@ export const useArticleStore = defineStore ('article', {
     getters: {
         getFeaturesSlides(state) {
             return state.homeArticles.slice(0,4);
+        },
+        getHomeArticles(state) {
+            return state.homeArticles;
         }
-
     },
     actions: {
 

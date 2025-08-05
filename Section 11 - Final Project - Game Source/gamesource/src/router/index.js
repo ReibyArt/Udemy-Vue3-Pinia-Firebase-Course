@@ -12,6 +12,7 @@ import UserProfile from '@/components/user/dashboard/pages/user_profile.vue';
 import AdminArticles from '@/components/user/dashboard/admin/articles.vue';
 import AdminAddArticle from '@/components/user/dashboard/admin/add.vue';
 import AdminEditArticle from '@/components/user/dashboard/admin/edit.vue';
+import Article from '@/components/articles/article.vue';
 
 
 
@@ -37,6 +38,7 @@ const router = createRouter({
         {path: 'articles', component: AdminArticles, name: 'admin_articles'},
         {path: 'articles/add', component: AdminAddArticle, name: 'admin_add_articles'},
         {path: 'articles/edit/:id', component: AdminEditArticle, name: 'admin_edit_articles'},
+        {path: 'article/:id', component: Article, name: 'article'},
       ]
     },
     {
