@@ -21,7 +21,12 @@ export const useArticleStore = defineStore ('article', {
         adminLastVisable: '',
     }),
 
-    getters: {},
+    getters: {
+        getFeaturesSlides(state) {
+            return state.homeArticles.slice(0,4);
+        }
+
+    },
     actions: {
 
         async updateArticle(id, formData){
@@ -149,6 +154,20 @@ export const useArticleStore = defineStore ('article', {
                 throw new Error(error);
             }
 
+        },
+        // Get Articles (Home)
+        async getArticles(docsLimit) {
+            try{
+                const q = query(ArticlesCol, orderBy('timestamp', 'desc'), limit(docsLimit));
+                const querySnapshot = await getDocs(q);
+                const articles = querySnapshot.docs.map(doc =>({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                this.homeArticles = articles; 
+            }catch(error){
+                throw new Error(error);
+            }
         }
     }
 })
