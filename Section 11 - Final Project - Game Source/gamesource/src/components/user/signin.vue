@@ -21,7 +21,7 @@
                 <input 
                     type="text"
                     class="form-control"
-                    placeholder="Enter your email"
+                    placeholder="Enter your email, dude"
                     v-bind="field"
                     :class="{'is-invalid' :errors.length !==0}"
                 />
@@ -44,7 +44,7 @@
                 <input 
                     type="password"
                     class="form-control"
-                    placeholder="Enter your password"
+                    placeholder="Enter your password, DUDE"
                     v-bind="field"
                     :class="{'is-invalid' :errors.length !==0}"
                 />
