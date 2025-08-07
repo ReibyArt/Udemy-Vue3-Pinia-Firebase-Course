@@ -1,3 +1,3 @@
 <template>
-    main dashboard
+    Here will be our Articles! 
 </template>
