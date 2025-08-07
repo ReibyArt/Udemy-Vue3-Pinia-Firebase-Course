@@ -15,7 +15,7 @@
         <div class="form-group">
             <Field 
                 name="email" 
-                :value="'reibyart@gmail.com'" 
+                :value="''" 
                 v-slot="{field, errors, errorMessage}"
             >
                 <input 
@@ -38,7 +38,7 @@
         <div class="form-group">
             <Field 
                 name="password" 
-                :value="'test123'" 
+                :value="''" 
                 v-slot="{field, errors, errorMessage}"
             >
                 <input 

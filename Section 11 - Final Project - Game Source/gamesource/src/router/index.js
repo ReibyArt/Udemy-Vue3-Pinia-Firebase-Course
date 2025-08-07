@@ -27,7 +27,8 @@ const router = createRouter({
      {
       path: '/signin',
       name: 'signin',
-      component: Signin, beforeEnter: isLoggedIn,
+      component: Signin,
+      // beforeEnter: isLoggedIn, 
     },
     {
       path: '/user/dashboard',
