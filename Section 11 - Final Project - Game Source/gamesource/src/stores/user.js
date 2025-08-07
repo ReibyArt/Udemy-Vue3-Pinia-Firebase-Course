@@ -7,6 +7,10 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { getDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import  errorCodes  from "@/utils/fbcodes";
 
+// TOASTS
+import { useToast } from "vue-toastification";
+const $toast = useToast();
+
 const DEFAULT_USER = {
     uid: null,
     email: null,
@@ -24,6 +28,9 @@ export const useUserStore = defineStore('user', {
     getters:{
         getUserData(state){
             return state.user;
+        },
+        getUserID(state){
+            return state.user.uid;
         }
     },
     actions: {
@@ -118,6 +125,21 @@ export const useUserStore = defineStore('user', {
             } finally 
             {
                 this.loading =false;
+            }
+        },
+        // Update Profile in Dashboard
+        async updateProfile(formData) {
+            try{
+                const userRef = doc(DB, 'users', this.getUserID);
+                await updateDoc(userRef,{
+                    ...formData
+                });
+
+                this.setUser(formData);
+                $toast.success('Updated!');
+                return true 
+            }catch(error){
+                $toast.error(error.message);
             }
         }
     }

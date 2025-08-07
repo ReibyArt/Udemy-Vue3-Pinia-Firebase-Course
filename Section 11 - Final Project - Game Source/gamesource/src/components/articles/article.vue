@@ -1,5 +1,5 @@
 <template>
-    <div class="container p_top">
+    <div class="container">
         <div class="text-center m-3" v-if="loading">
             <v-progress-circular
                 indeterminate
@@ -46,4 +46,3 @@ articleStore.getArticleById(route.params.id)
     loading.value = false;
 })
 </script>
-

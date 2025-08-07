@@ -8,7 +8,7 @@
     ></v-progress-circular>
     </div>
 
-    <Form @submit="onSubmit" :validation-schema="formShema" v-show="!userStore.loading">
+    <Form @submit="onSubmit" :validation-schema="formSchema" v-show="!userStore.loading">
         <h1 v-text="!type ? 'Sign in' : 'Register' "></h1>
 
             <!-- Email -->
@@ -95,7 +95,7 @@
 // // //
 const type = ref(false);
 
-const formShema = yup.object({
+const formSchema = yup.object({
     email: yup.string()
     .required('The email is required!')
     .email('Not a valid email!'),
