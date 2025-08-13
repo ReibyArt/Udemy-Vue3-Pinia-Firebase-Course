@@ -1,6 +1,6 @@
 <template>
     <header>
-       <div class="container header_container">
+       <div class="container header_container" >
         <div class="logo">
             <router-link :to="{name: 'home'}">
                 GameSource By Reiby Art Games

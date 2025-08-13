@@ -1,12 +1,12 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid content">
         <!-- Side Bar (Left) -->
-        <div class="row">
+        <div class="row" >
             <nav
             id="sidebarMenu"
-            class="col-mb-3 col-lg-2 d-md-block bg-light sidebar collapse"
+            class="col-mb-3 col-sm-3 col-lg-2 bg-light sidebar"
             >
-                <div class="position-sticky pt-3">
+                <div class="position-sticky mt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <router-link class="nav-link" :to="{name: 'dashboard'}">
@@ -35,7 +35,7 @@
                     </ul>
                 </div>
             </nav>
-
+            <!-- CONTENT -->
             <main
                 id="admin_body"
                 class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
@@ -50,3 +50,12 @@
 import { useUserStore } from '@/stores/user';
 const userStore = useUserStore();
 </script>
+
+<style scoped>
+/* Мобильная версия */
+@media (max-width: 767px) {
+  .content {
+    flex-direction: column;
+  }
+}
+</style>
