@@ -3,10 +3,12 @@
         <carousel
             :items-to-show="1"
             :wrap-around="true"
-            class="p_top"
+            class="p_top hidden_content"
         >
         <slide v-for="slide in articleStore.getFeaturesSlides" :key="slide.id">
-            <div class="slider_bck" :style="{background:`url(${slide.image})`}">
+            <div class="slider_bck img-fluid" :style="{
+                background:`url(${slide.image})`
+                }">
                 <div class="slide_content">
                     <div class="item">
                         <div>{{ slide.title }}</div>
@@ -42,5 +44,11 @@ const articleStore = useArticleStore();
   --vc-pgn-border-radius: 10px;
   --vc-pgn-height: 10px;
   --vc-pgn-width: 10px;
+}
+
+@media(max-width: 768px) {
+    .hidden_content {
+        display: none;
+    }
 }
 </style>

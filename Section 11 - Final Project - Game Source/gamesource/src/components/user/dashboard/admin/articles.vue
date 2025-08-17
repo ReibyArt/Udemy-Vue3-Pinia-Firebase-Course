@@ -5,7 +5,7 @@
             color="primary"
         />
     </div>
-    <div v-show="!loading">
+    <div v-show="!loading" class="center_mobile">
             <v-table theme="dark">
                 <thead>
                     <tr>
@@ -54,6 +54,7 @@
                     </tr>
                  </tbody>
             </v-table>
+            <hr>
             <div class="text-center m-3" v-if="btnLoad">
                 <v-progress-circular
                  indeterminate
@@ -113,3 +114,12 @@ if(!articleStore.adminArticles || route.query.reload) {
 })
 }
 </script>
+
+<style scoped>
+
+@media (max-width: 767px) {
+.center_mobile {
+   text-align: center;
+}
+}
+</style>

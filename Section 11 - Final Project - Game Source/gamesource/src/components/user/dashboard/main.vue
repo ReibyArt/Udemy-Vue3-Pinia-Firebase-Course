@@ -1,8 +1,3 @@
-<!-- <template>
-    Here will be our Articles!
-</template> -->
-
-
 <template>
   <div>
     <AdaptiveComponent 

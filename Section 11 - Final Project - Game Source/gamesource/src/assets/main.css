@@ -18,7 +18,7 @@ a { color:inherit}
 
 
 .p_top{
-  padding-top: 130px;
+  padding-top: 20px;
 }
 
 
@@ -37,7 +37,7 @@ a { color:inherit}
 }
 
 #admin_body {
-  margin-top: 150px;
+  margin-top: 2rem;
 }
 
 /*================================
@@ -47,7 +47,7 @@ header {
   background:#212529;
   border-bottom: 3px solid #611be1;
   color:white;
-  position:fixed;
+  position: relative;
   width:100%;
   z-index: 9999;
 }
@@ -116,7 +116,7 @@ footer .logo {
 }
 
 .slider_bck {
-  height: 560px;
+  height: 700px;
   width: 100%;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -322,22 +322,17 @@ padding-bottom: 100px;
 ==================================*/
 
 .sidebar {
-  position: fixed;
-  top: 116px;
-  /* rtl:raw:
-  right: 0;
-  */
+  top: 166px;
   bottom: 0;
-  /* rtl:remove */
   left: 0;
   z-index:100;
   padding: 10px 0 0;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  box-shadow: inset -1px 0 0 rgb(65, 63, 63);
 }
 
 @media (max-width: 767.98px) {
   .sidebar {
-    top: 4rem;
+    top: 50rem;
   }
 }
 
@@ -345,7 +340,7 @@ padding-bottom: 100px;
   position: relative;
   top: 0;
   height: calc(100vh - 48px);
-  padding-top: .5rem;
+  padding-top: .50rem;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }

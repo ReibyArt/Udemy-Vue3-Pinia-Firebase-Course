@@ -3,10 +3,9 @@
         <!-- Side Bar (Left) -->
         <div class="row" >
             <nav
-            id="sidebarMenu"
-            class="col-md-3 col-sm-3 col-lg-2 bg-light sidebar content"
+            class="col-md-3 col-sm-3 col-lg-2 bg-light sidebar"
             >
-                <div class="position-sticky mt-3">
+                <div class="position-sticky mt-3 dashboard_addaptive">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <router-link class="nav-link" :to="{name: 'dashboard'}">
@@ -35,6 +34,7 @@
                     </ul>
                 </div>
             </nav>
+
             <!-- CONTENT -->
             <main
                 id="admin_body"
@@ -51,11 +51,15 @@ import { useUserStore } from '@/stores/user';
 const userStore = useUserStore();
 </script>
 
-<style scoped>
+<style>
 /* Мобильная версия */
-@media (max-width: 766px) {
+@media (max-width: 767px) {
   .content {
-    flex-direction: column;
+    flex-direction: column !important;
+  }
+  .dashboard_addaptive {
+    max-width: 100%;
+    text-align: center !important; 
   }
 }
 </style>
