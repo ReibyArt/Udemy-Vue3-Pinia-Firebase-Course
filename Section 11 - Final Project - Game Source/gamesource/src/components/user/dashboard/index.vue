@@ -1,10 +1,10 @@
 <template>
-    <div class="container-fluid content">
+    <div class="container-fluid">
         <!-- Side Bar (Left) -->
         <div class="row" >
             <nav
             id="sidebarMenu"
-            class="col-mb-3 col-sm-3 col-lg-2 bg-light sidebar"
+            class="col-md-3 col-sm-3 col-lg-2 bg-light sidebar content"
             >
                 <div class="position-sticky mt-3">
                     <ul class="nav flex-column">
@@ -53,7 +53,7 @@ const userStore = useUserStore();
 
 <style scoped>
 /* Мобильная версия */
-@media (max-width: 767px) {
+@media (max-width: 766px) {
   .content {
     flex-direction: column;
   }
