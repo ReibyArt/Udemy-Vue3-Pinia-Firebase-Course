@@ -1,6 +1,6 @@
 <template>
   <Form @submit="handleSubmit" :validation-schema="formSchema">
-    <div class="mb-3">
+    <div class="mb-3 center">
         <label for="name">Name</label>
         <Field 
           name="name" 
@@ -14,7 +14,7 @@
           </div>
         </ErrorMessage>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 center">
         <label for="name">Email</label>
         <Field 
           name="email" 
@@ -42,8 +42,8 @@ import {Field, Form, ErrorMessage} from 'vee-validate';
 import * as yup from 'yup';
 
 const formSchema = yup.object({
-  name: yup.string().required('The name is required!').max(10,'Sorry max of 10!'),
-  email: yup.string().required('Press Enter Your Email!').min(10, 'Min 10 characters!').max(30, 'Max 15 characters!')
+  name: yup.string().required('The name is required!').max(20,'Sorry max of 20!'),
+  email: yup.string().required('Press Enter Your Email!').min(10, 'Min 10 characters!').max(30, 'Max 30 characters!')
 });
 
 
@@ -66,3 +66,18 @@ function handleSubmit (values, {resetForm}) {
 
 
 </script>
+
+<style scoped>
+
+
+@media (max-width: 767px) {
+  .content {
+    flex-direction: column;
+  }
+  .center {
+    text-align: center;
+  }
+}
+
+
+</style>

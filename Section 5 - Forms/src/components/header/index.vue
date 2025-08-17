@@ -1,7 +1,7 @@
 
 <template>
-    <header>
-         <strong>Reiby Art Games</strong>
+    <header class="container">
+         <strong><h4>Reiby Art's Games</h4></strong>
          <h3>Official Web Site</h3> 
     </header>
  </template>
@@ -13,11 +13,11 @@
         margin:0;
         font-family: 'Roboto', sans-serif;
     }
-   .container {
+   /* .container {
          min-height: 84vh;
          box-sizing: border-box;
-         padding: 20px;
-   }
+         padding: 20px; */
+   /* } */
      header {
          background: #2196F3;
          border-bottom: 4px solid #607D8B;
@@ -26,11 +26,24 @@
          color: #ffffff;
          font-size: 30px;
      }
-     h3{
+     /* h3{
         display: flex;
         margin: auto;
         padding: auto;
-     }
-     
- 
+     } */
+
+     /* Addaptive */
+
+      @media (max-width: 767px) {
+    .container {
+        flex-direction: column !important;
+        text-align: center;
+        font-size: larger;
+    }
+    h3 {
+        font-size: large;
+        text-align: center;
+    }
+} 
+
  </style>
