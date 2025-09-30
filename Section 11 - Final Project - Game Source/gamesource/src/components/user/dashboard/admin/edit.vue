@@ -3,12 +3,12 @@
     <hr>
     <!-- Loader  -->
 
-    <!-- <div class="text-center m-3" v-show="loading">
+    <div class="text-center m-3" v-show="loading">
         <v-progress-circular
             indeterminate
             color="primary"
         />
-    </div> -->
+    </div>
     <Form class="mb-5" @submit="onSubmit" :validation-schema="ArticleSchema">
             <div class="mb-4">
                 <!-- Name of the game -->
@@ -132,6 +132,28 @@
                 </Field>
             </div>
 
+            <!-- Add IMG From Computer -->
+
+            <div class="mb-4">
+                <!-- Name of the game -->
+                <!-- <Field 
+                    name="image_local" v-slot="{field, errors, errorMessage}">
+                    <input 
+                        type="file"
+                        class="form-control"
+                        placeholder="Add IMG from your computer"
+                        v-bind="field"
+                        :class="{'is-invalid' :errors.length !==0}"
+                    />
+                    <div
+                        class="input-alert"
+                        v-if="errors.length !==0"
+                    >
+                        {{ errorMessage }}
+                    </div>        
+                </Field> -->
+            </div>
+
             <!--  Button  -->
               <v-btn 
               type="submit" 
@@ -166,7 +188,7 @@ const articleStore = useArticleStore();
 // Loader
 const loading = ref(true);
 
-const ratingArray = [0,1,2,3,4,5]
+const ratingArray = [0,1,2,3,4,5,6,7,8,9,10]
 const veditor = ref('');
 const article = ref({});
 
@@ -186,11 +208,11 @@ function updateEditor(value) {
 
 articleStore.getArticleById(route.params.id)
 .then((response) => {
-    console.log('Данные в RESPONSE ' + response);
+    // console.log('Данные в RESPONSE ' + response);
     article.value = { ...response };
     updateEditor(response.editor);
     loading.value = false;
-    console.log('Данные в ARTICLE.VALUE' + article.value)
+    // console.log('Данные в ARTICLE.VALUE' + article.value)
 })
 .catch((error)=> {
     $toast.error(error.message)

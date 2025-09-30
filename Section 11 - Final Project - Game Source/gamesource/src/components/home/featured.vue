@@ -4,7 +4,7 @@
             <!-- Cards  -->
             <v-card>
                 <v-img
-                height="200"
+                height="300"
                 :src="article.image"
                 cover
                 class="text-white"

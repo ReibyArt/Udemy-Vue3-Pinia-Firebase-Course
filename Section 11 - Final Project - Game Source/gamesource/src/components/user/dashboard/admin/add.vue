@@ -156,7 +156,7 @@ const articleStore = useArticleStore();
 // Loader
 const loading = ref(false);
 
-const ratingArray = [0,1,2,3,4,5]
+const ratingArray = [0,1,2,3,4,5,6,7,8,9,10]
 const veditor = ref('');
 
 function onSubmit(values, { resetForm}) {
