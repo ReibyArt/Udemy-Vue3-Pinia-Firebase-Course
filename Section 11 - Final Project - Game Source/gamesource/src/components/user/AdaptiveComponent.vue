@@ -2,7 +2,7 @@
   <div class="adaptive-component" :class="{ 'mobile-layout': isMobile }">
     <h2>{{ title }}</h2>
     <div class="content">
-      <img src='/src/assets/images/cyberpunk.jpg' alt="Пример изображения" class="content-image">
+      <img src='/src/assets/images/S.T.A.L.K.E.R.Shadow of Chernobyl.jpg' alt="Пример изображения" class="content-image">
       <div class="text-content">
         <p>{{ description }}</p>
         <button @click="handleClick" class="action-button">

@@ -37,6 +37,7 @@ export const useArticleStore = defineStore ('article', {
                 await updateDoc(docRef, {
                     ...formData
                 });
+                
                 /// SHOW TOASTS
                 $toast.success('Updated');
                 return true;
@@ -49,7 +50,6 @@ export const useArticleStore = defineStore ('article', {
         async getArticleById(id) {
             try{
                 const docRef = await getDoc(doc(DB, 'articles', id));
-                console.log("Данные документа:", docRef.data());
                 if(!docRef.exists()){
                     throw new Error ('Could not find document in DB!');
                 }
@@ -79,9 +79,8 @@ export const useArticleStore = defineStore ('article', {
                     },
                     ...formData
                 });
-
+             
                 router.push({ name: 'admin_articles', query: {reload: 'true'}});
-                console.log(user.firstname + ' ' + user.lastname);
                 return true;
             }
             catch(error)
