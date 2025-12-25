@@ -3,5 +3,5 @@
     <!-- http://localhost:3000/users/123 
         or 
      http://localhost:3000/users/ReibyArtBlablabala -->
-    <div>User ID</div>
+    <div>User ID: {{ $route.params.id }}</div>
 </template>
