@@ -1,4 +1,7 @@
 <template>
+  <nuxt-layout></nuxt-layout>
+  <hr>
+  <!-- <nuxt-layout name='our-own-layout'></nuxt-layout> -->
   <div>
    <nuxt-page></nuxt-page>
   </div>

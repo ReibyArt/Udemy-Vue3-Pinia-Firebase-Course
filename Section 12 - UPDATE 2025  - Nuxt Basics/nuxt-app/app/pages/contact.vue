@@ -2,6 +2,7 @@
     <div>
         <h1>Static Routes</h1>
         <h1>Contact Page</h1>
+        <button @click="setPageLayout('default')">Change Layout</button>
     </div>
 </template>
 
@@ -29,4 +30,8 @@
         description: 'Some Description From Meta',
         ogDescription: 'Some OG Description From Meta'
     }) 
+
+    definePageMeta({
+        layout: 'our-own-layout'
+    })
 </script>
