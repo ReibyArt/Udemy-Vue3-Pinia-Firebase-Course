@@ -18,8 +18,9 @@
 <hr/>
   <UserProfile/>
 <hr/>
-
-
+<!-- Other My Folder Components -->
+<hr/>
+  <OtherFolderComponent/>
 </template>
 
 
@@ -29,6 +30,7 @@
 import Card from './components/card.vue';
 import Profile from './components/user/profile.vue';
 import { UserProfile } from '#components';
+import OtherFolderComponent from './otherComponents/otherFolderComponent/other.vue';
 
 
   // UseHead support reactivity! This is imoprtant!!!!
