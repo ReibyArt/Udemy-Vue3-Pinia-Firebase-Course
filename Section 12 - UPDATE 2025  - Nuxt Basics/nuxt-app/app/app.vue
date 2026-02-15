@@ -1,14 +1,35 @@
 <template>
   <nuxt-layout></nuxt-layout>
-  <hr>
+<hr>
   <!-- <nuxt-layout name='our-own-layout'></nuxt-layout> -->
   <div>
-   <nuxt-page></nuxt-page>
+    <nuxt-page></nuxt-page>
   </div>
+<hr/>
+  <card></card>
+
+<!-- Different ways to import component -->
+<hr/>
+  <user-profile></user-profile>
+<hr/>
+  <UserProfile/>
+<hr/>
+  <Profile/>
+<hr/>
+  <UserProfile/>
+<hr/>
+
+
 </template>
 
 
 <script setup>
+
+// Import components different ways
+import Card from './components/card.vue';
+import Profile from './components/user/profile.vue';
+import { UserProfile } from '#components';
+
 
   // UseHead support reactivity! This is imoprtant!!!!
   useHead({
