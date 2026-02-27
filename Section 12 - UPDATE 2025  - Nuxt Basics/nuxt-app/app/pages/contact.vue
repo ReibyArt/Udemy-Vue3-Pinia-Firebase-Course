@@ -1,10 +1,28 @@
 <template>
     <div>
-        <h1>Static Routes</h1>
-        <h1>Contact Page</h1>
+        <h1>Static Routes (SASS Style)</h1>
+        <h2>Contact Page (SASS Style)</h2>
+        <h3 :class="$style.module">Module CSS Class Style</h3>
         <button @click="setPageLayout('default')">Change Layout</button>
     </div>
 </template>
+
+<style scoped lang="scss" module>
+    @use '~/assets/colors';
+
+    h1 {
+        color: colors.$alpha;
+    }
+
+    h2 {
+        color: colors.$beta;
+    }
+
+    .module {
+        color: blueviolet;
+    }
+
+</style>
 
 <script setup>
     // UseHead support reactivity! This is imoprtant!!!!
