@@ -50,6 +50,12 @@
     }) 
 
     definePageMeta({
-        layout: 'our-own-layout'
+        layout: 'our-own-layout',
+        middleware: ['03-name-middleware', // Our named middleware
+
+        function localMiddleware(to, from) {
+            console.log('Local Contact Middleware');
+        }
+        ]
     })
 </script>
