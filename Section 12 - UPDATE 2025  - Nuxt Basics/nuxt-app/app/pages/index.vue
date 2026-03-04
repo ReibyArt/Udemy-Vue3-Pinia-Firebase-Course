@@ -24,6 +24,9 @@
     // import '~/assets/main.css';
     const router = useRouter();
     const users = getUser('Twitch');
+    // Import Second Composables Folder Or From Global index.js inside composables folder
+    // import { SecondCompFunc } from '~/composables/ourSecondComposablesFolder/secondComp.js';
+    console.log(SecondCompFunc());
 
     // Import Style
     // useHead({
