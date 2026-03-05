@@ -7,6 +7,7 @@
         <button @click="router.push('/contact')">Java Script Routing Go To Contact</button>
     </div>
     <hr/>
+    <!-- COMPOSABLES -->
     <div >
         <ul v-if="!users.loader.value">
             <li v-for="user in users.names.value" :key="user">
@@ -17,9 +18,18 @@
     </div>
     <hr/>
     <button @click="users.getName">Add Twitch in the array</button>
+    <hr/>
+    <!-- UTILS -->
+    <h1>Hello From Utils!</h1>
+    <div>
+        <h2>{{ getNumber(28) }}</h2>
+        <hr/>
+        <h2>Export Default Function - {{ getName('Reiby Art Games') }} </h2>
+    </div>
 </template>
 
 <script setup>
+
     // Global Style 
     // import '~/assets/main.css';
     const router = useRouter();
