@@ -26,9 +26,31 @@
         <hr/>
         <h2>Export Default Function - {{ getName('Reiby Art Games') }} </h2>
     </div>
+    <hr>
+    <div>
+        <h1>Plugins</h1>
+        <h2>Red: {{ $red  }}</h2>
+        <h2>Green: {{ $green  }}</h2>
+        <h2>Blue: {{ $blue }}</h2>
+        <h1>Plugins: Function</h1>
+        <button @click="$ourFunc('Reiby!')"> Our Func From Plugins!</button>
+    </div>
+    <div>
+        <h1>Register A Global Component MyButton From Plugins</h1>
+        <MyButton> Click Me </MyButton>
+    </div>
+    <hr>
+    <div>
+        <!-- Next Lesson -->
+         <h2>Next Lesson</h2>
+    </div>
 </template>
 
 <script setup>
+
+    // Plugins From Script
+    const {$red, $green, $blue} = useNuxtApp();
+    console.log($red, $green, $blue);
 
     // Global Style 
     // import '~/assets/main.css';
