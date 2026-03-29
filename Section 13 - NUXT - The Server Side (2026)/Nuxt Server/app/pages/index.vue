@@ -1,7 +1,11 @@
 <template>
     <div>
+        <div v-if="getEmployee && postEmployee == undefined">
+            <h3>No data api_Test_Get_Post</h3>
+        </div>
         <h1>Home Page</h1>
         <div v-if="pending">
+        
             <h1>Loading.....</h1>
         </div>
         <div v-else-if="error">Error: {{ error.message }}</div>
@@ -34,7 +38,20 @@
 
     // const {error, pending, data} = await useFetch('http://localhost:3004/employees');
 
-    const {error, pending, data} = await useAsyncData('someData', () => {
-        return $fetch('http://localhost:3004/employees');
-    });
+    // const {error, pending, data} = await useAsyncData('someData', () => {
+    //     return $fetch('http://localhost:3004/employees');
+    // });
+
+    // SERVER API
+    const {error, pending, data} = await useFetch('http://localhost:3004/employees');
+
+    const {data: getEmployee} = await useFetch('/api/employees');
+    console.log(getEmployee.value);
+
+    const {data: postEmployee} = await useFetch('/api/employees', {
+        method: 'POST',
+        // body: {test: 'test_Body_Post'}
+    })
+    console.log(postEmployee.value);
+    console.log(postEmployee);
 </script>
