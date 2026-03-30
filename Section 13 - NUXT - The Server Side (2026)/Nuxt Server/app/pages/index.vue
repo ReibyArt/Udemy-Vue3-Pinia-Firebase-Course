@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="getEmployee && postEmployee == undefined">
+        <div v-if="data == undefined">
             <h3>No data api_Test_Get_Post</h3>
         </div>
         <h1>Home Page</h1>
@@ -43,15 +43,8 @@
     // });
 
     // SERVER API
-    const {error, pending, data} = await useFetch('http://localhost:3004/employees');
-
-    const {data: getEmployee} = await useFetch('/api/employees');
-    console.log(getEmployee.value);
-
-    const {data: postEmployee} = await useFetch('/api/employees', {
-        method: 'POST',
-        // body: {test: 'test_Body_Post'}
-    })
-    console.log(postEmployee.value);
-    console.log(postEmployee);
+    // $fetch используем на сервере
+    // useFetch() - используем на клиенте (компоненте) ТУТ! :)
+    // Get Data From Our JS Server
+    const {error, pending, data} = await useFetch('/api/employees');
 </script>
