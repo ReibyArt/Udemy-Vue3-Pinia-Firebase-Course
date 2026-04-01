@@ -27,7 +27,11 @@ const formData = ref({
     age: null,
 });
 
-function submitForm() {
-    console.log(formData.value)
+async function submitForm() {
+ const request = await $fetch('/api/employees?example=true&example=false', {
+    method: 'post',
+    body: formData.value,
+ }); 
+ console.log(request);
 }
 </script>

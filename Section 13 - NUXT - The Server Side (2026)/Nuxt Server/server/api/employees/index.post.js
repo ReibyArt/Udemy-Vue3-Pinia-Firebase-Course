@@ -1,6 +1,7 @@
-export default defineEventHandler((event) => {
-    console.log(event);
+export default defineEventHandler(async (event) => {
+ const body = await readBody(event);
+ const query = getQuery(event);
   return {
-    post: 'postTest',
+    body, query
   }
 })
