@@ -4,19 +4,32 @@
       "fullname": "Martin short",
       "position": "Manager",
       "age": 81,
-      "id": 1
+      "id": "1"
     },
     {
       "fullname": "Lorne Michell",
       "position": "Manager",
       "age": "25",
-      "id": 2
+      "id": "2"
     },
     {
       "fullname": "Usher Davis",
       "position": "Dev",
       "age": 56,
-      "id": 3
+      "id": "3"
+    },
+    {
+      "id": "dc5a",
+      "fullname": "Reiby Art Games",
+      "position": "Junior Dev",
+      "age": 33
+    },
+    {
+      "id": "1f10",
+      "fullname": "Aranel",
+      "position": "Writer",
+      "age": 31
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
