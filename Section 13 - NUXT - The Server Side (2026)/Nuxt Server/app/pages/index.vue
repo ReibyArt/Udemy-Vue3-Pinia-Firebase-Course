@@ -47,4 +47,6 @@
     // useFetch() - используем на клиенте (компоненте) ТУТ! :)
     // Get Data From Our JS Server
     const {error, pending, data} = await useFetch('/api/employees');
+    const helloFromRoutesFolder = await $fetch('/hello');
+    console.log(helloFromRoutesFolder);
 </script>
