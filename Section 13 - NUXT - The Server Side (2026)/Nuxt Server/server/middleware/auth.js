@@ -1,10 +1,11 @@
 export default defineEventHandler((event)=> {
 
-    const auth = getCookie(event, 'authX');
+    const authTT = getCookie(event, 'authx');
 
-    if(!auth || auth !== 'secretToken') {
-        console.log('Error Token!');
-}
+    // console.log('This is console: ' + authTT);
+//     if(!authTT || authTT !== 'secretToken') {
+//         console.log('Error Token!');
+// }
 
     event.context.user = {
         id: 'sdfsdfsd',
