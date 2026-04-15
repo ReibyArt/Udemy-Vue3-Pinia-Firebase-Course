@@ -1,10 +1,11 @@
+import { getEmployees } from "../utils";
+
 export default defineNitroPlugin((nitroApp)=>{
     console.log('Hello Nitro Plugin!');
     nitroApp.hooks.hook('request', async(event)=>{
         // console.log('Run on request!');
         try{ 
-            const result = await $fetch('http://localhost:3004/employees');
-            console.log('Result: ', result);
+            const result = getEmployees(); // Function from Utils
             event.context.employeeList = result;
         } catch(error) {
             console.log(error);
